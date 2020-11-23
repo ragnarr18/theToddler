@@ -1,6 +1,5 @@
 # theToddler
 the Toddler, a react-native project in app development
-Bjarni er bestur
 
 cd /theToddler/ and run npm start
 
@@ -14,4 +13,5 @@ package.json {scripts: {
 to run lint => npm run lint
 
 
-ragnarr18: ragnar geir ragnarsson
+ragnarr18: Ragnar Geir Ragnarsson
+bjarnib18: Bjarni Berg Björgvinsson
