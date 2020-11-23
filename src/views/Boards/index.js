@@ -1,11 +1,16 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import BoardsList from '../../components/BoardsList';
+import BoardsToolbar from '../../components/BoardsToolbar';
 
-const Boards = () => (
-  <View>
-    <Text> Boards</Text>
-    <Text> lala</Text>
-  </View>
-);
-
+class Boards extends React.Component {
+  render() {
+    return (
+      <View>
+        <BoardsList />
+        <BoardsToolbar />
+      </View>
+    );
+  }
+}
 export default Boards;
