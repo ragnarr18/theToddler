@@ -6,6 +6,9 @@ class Task extends React.Components {
     const {
       name, description, finished, listId,
     } = this.props;
+    let finishedText = 'not finished';
+    if (finished) { finishedText = 'task finished'; }
+
     return (
       <View>
         <Text>
@@ -18,7 +21,7 @@ class Task extends React.Components {
         </Text>
         <Text>
           Finished:
-          { finished }
+          { finishedText }
         </Text>
         <Text>
           List Id:
