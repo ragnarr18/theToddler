@@ -12,3 +12,6 @@ package.json {scripts: {
   }}
 
 to run lint => npm run lint
+
+
+ragnarr18: ragnar geir ragnarsson
