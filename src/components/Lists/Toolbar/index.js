@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
+import styles from './styles';
 
 const Toolbar = ({ goBack }) => (
   <View stylename="horizontal">
