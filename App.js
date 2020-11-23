@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Boards from './src/views/Boards';
+// import Boards from './src/components/Boards';
+import { TaskItem } from './src/components/Tasks';
+import data from './src/resources/data.json';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,7 +16,10 @@ const styles = StyleSheet.create({
 export default function App() {
   return (
     <View style={styles.container}>
-      <Boards />
+      { data.tasks.forEach((item) => {
+        console.log(item.name);
+          <TaskItem props={item} />;
+      })}
       <Text>Open up App.js to start working on your app! testing 123</Text>
     </View>
   );
