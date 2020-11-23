@@ -1,5 +1,6 @@
 # theToddler
 the Toddler, a react-native project in app development
+Bjarni er bestur
 
 cd /theToddler/ and run npm start
 
