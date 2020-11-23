@@ -1,35 +1,41 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import { PropTypes } from 'prop-types';
 
-class Task extends React.Components {
-  render() {
-    const {
-      name, description, finished, listId,
-    } = this.props;
-    let finishedText = 'not finished';
-    if (finished) { finishedText = 'task finished'; }
+const TaskItem = (props) => {
+  const {
+    name, description, finished, listId,
+  } = props;
 
-    return (
-      <View>
-        <Text>
-          Name:
-          { name }
-        </Text>
-        <Text>
-          Description:
-          { description }
-        </Text>
-        <Text>
-          Finished:
-          { finishedText }
-        </Text>
-        <Text>
-          List Id:
-          { listId }
-        </Text>
-      </View>
-    );
-  }
-}
+    <View>
+      <Text>
+        Name:
+        { name }
+      </Text>
+      <Text>
+        Description:
+        { description }
+      </Text>
+      <Text>
+        Finished:
+        { finished }
+      </Text>
+      <Text>
+        List Id:
+        { listId }
+      </Text>
+    </View>;
+};
 
-export default Task;
+TaskItem.PropTypes = {
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  finished: PropTypes.bool.isRequired,
+  listId: PropTypes.number.isRequired,
+};
+
+TaskItem.propDefault = {
+  description: '',
+};
+
+export default TaskItem;
