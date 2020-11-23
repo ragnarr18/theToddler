@@ -14,5 +14,5 @@ to run lint => npm run lint
 
 
 ragnarr18: Ragnar Geir Ragnarsson
+
 bjarnib18: Bjarni Berg Björgvinsson
- 
