@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "lint" : "node ./node_modules/eslint/bin/eslint.js **/*.js"
+    "lint": "node ./node_modules/eslint/bin/eslint.js **/*.js"
   },
   "dependencies": {
     "expo": "~39.0.2",
