@@ -2,12 +2,17 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import { PropTypes } from 'prop-types';
 
-const TaskItem = (props) => {
+function PureTaskItem(props) {
   const {
-    name, description, finished, listId,
+    id, name, description, isFinished, listId,
   } = props;
 
+  return (
     <View>
+      <Text>
+        Id:
+        { id }
+      </Text>
       <Text>
         Name:
         { name }
@@ -18,24 +23,27 @@ const TaskItem = (props) => {
       </Text>
       <Text>
         Finished:
-        { finished }
+        { isFinished }
       </Text>
       <Text>
         List Id:
         { listId }
       </Text>
-    </View>;
-};
+    </View>
+  );
+}
 
-TaskItem.PropTypes = {
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  finished: PropTypes.bool.isRequired,
-  listId: PropTypes.number.isRequired,
-};
-
-TaskItem.propDefault = {
+PureTaskItem.defaultProps = {
   description: '',
 };
 
+PureTaskItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  isFinished: PropTypes.bool.isRequired,
+  listId: PropTypes.number.isRequired,
+};
+
+const TaskItem = React.memo(PureTaskItem);
 export default TaskItem;
