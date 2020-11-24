@@ -8,7 +8,8 @@ class Lists extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <Header />
-        {console.log(this.props)}
+        {/* oi arnar til að fá borderId þá geriru this.props.navigation.state.params.borderId */}
+        {console.log(this.props.navigation.state)}
         <Text>This is where a list should appear</Text>
         <BottomToolbar />
       </View>
