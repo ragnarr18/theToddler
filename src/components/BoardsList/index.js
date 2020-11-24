@@ -13,7 +13,7 @@ const BoardsList = (props) => (
       renderItem={({ item }) => (
         <View style={styles.boarderItem}>
           {console.log(props)}
-          <TouchableHighlight key={item.id} onPress={() => props.navigation.navigate('Lists', {borderId: item.id})}>
+          <TouchableHighlight key={item.id} onPress={() => props.navigation.navigate('Lists', { borderId: item.id })}>
             <View>
               <ImageThumbnail source={item.thumbnailPhoto} />
               <Text>{item.name}</Text>
