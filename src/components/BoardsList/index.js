@@ -11,7 +11,7 @@ const BoardsList = ({ boardsItems }) => (
       renderItem={({ item: { thumbnailPhoto, name } }) => (
         <Text>{name}</Text>
       )}
-      keyExtractor={(boardsItems) => boardsItems.name}
+      keyExtractor={(boardsItems) => boardsItems.thumbnailPhoto}
     />
   </View>
 );
