@@ -7,7 +7,6 @@ class Lists extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Header />
         {console.log(this.props)}
         <Text>This is where a list should appear</Text>
         <BottomToolbar />

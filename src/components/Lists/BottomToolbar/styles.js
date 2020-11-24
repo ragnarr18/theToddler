@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { prettyOrange } from '../../../styles/colors';
+import { prettyOrange, darkerOrange } from '../../../styles/colors';
 
 export default StyleSheet.create({
   toolbarAction: {
@@ -13,8 +13,14 @@ export default StyleSheet.create({
     flexDirection: 'row',
     height: 80,
     margin: 5,
-    backgroundColor: prettyOrange,
+    backgroundColor: darkerOrange,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  toolbarActionText: {
+    fontWeight: 'bold',
+    color: 'white',
+    fontSize: 16,
   },
 });
