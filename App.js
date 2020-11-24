@@ -2,6 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import TaskItem from './src/components/Tasks';
 import Boards from './src/views/Boards';
+import Header from './src/components/Lists/Header';
+import BottomToolbar from './src/components/Lists/BottomToolbar';
 import data from './src/resources/data.json';
 
 const styles = StyleSheet.create({
@@ -28,10 +30,11 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      { taskList }
+      <Header />
       <Text>Open up App.js to start working on your app! testing 123</Text>
       <Text>Boardspart by raggi atm</Text>
       <Boards />
+      <BottomToolbar />
     </View>
   );
 }
