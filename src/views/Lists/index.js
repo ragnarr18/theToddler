@@ -6,28 +6,23 @@ import ListList from '../../components/Lists/ListList';
 import data from '../../resources/data.json';
 
 class Lists extends React.Component {
-  render() {
-    const listList = [];
-    data.lists.filter(
-      (list) => data.lists.borderId === this.props.navigation.state.params.borderId,
-    ).map(
-      (filteredList) => (
-        listlist.push(
-          <View style={{ flex: 1 }}>
-            {/* arnar til að fá borderId þá geriru this.props.navigation.state.params.borderId */}
-            <Text>This is where a list should appear</Text>
-            <ListList lists={data.lists} navigation={this.props.navigation} />
-            <BottomToolbar />
-          </View>,
-        )
-      ),
-    );
+  constructor(props) {
+    super(props);
+    this.state = { lists: data.lists };
+  }
 
+  render() {
+    const { navigation } = this.props;
+    const { boardId } = navigation.state.params;
+    const { lists } = this.state;
+    const tempArray = lists.filter((list) => list.boardId === boardId);
     return (
       <View style={{ flex: 1 }}>
-        {/* arnar til að fá borderId þá geriru this.props.navigation.state.params.borderId */}
         <Text>This is where a list should appear</Text>
-        <ListList lists={data.lists} navigation={this.props.navigation} />
+        <ListList
+          lists={tempArray}
+          navigation={navigation}
+        />
         <BottomToolbar />
       </View>
     );
