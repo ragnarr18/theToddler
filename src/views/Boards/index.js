@@ -8,8 +8,8 @@ class Boards extends React.Component {
   render() {
     return (
       <View>
-        {/* {console.log(data.boards)} */}
-        <BoardsList boardsItems={data.boards} />
+        {console.log(this.props)}
+        <BoardsList boardsItems={data.boards} navigation={this.props.navigation} />
         <BoardsToolbar />
       </View>
     );

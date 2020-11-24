@@ -1,18 +1,24 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import {
+  View, Text, FlatList, TouchableHighlight,
+} from 'react-native';
 import styles from './styles';
 import ImageThumbnail from '../ImageThumbnail';
 
-const BoardsList = ({ boardsItems }) => (
+const BoardsList = (props) => (
   <View styleName="horizontal" style={styles.container}>
-    {console.log(boardsItems)}
     <FlatList
       numColumns={3}
-      data={boardsItems}
+      data={props.boardsItems}
       renderItem={({ item: { thumbnailPhoto, name } }) => (
         <View style={styles.boarderItem}>
-          <ImageThumbnail source={thumbnailPhoto} />
-          <Text>{name}</Text>
+          {console.log(props)}
+          <TouchableHighlight onPress={() => props.navigation.navigate('Lists')}>
+            <View>
+              <ImageThumbnail source={thumbnailPhoto} />
+              <Text>{name}</Text>
+            </View>
+          </TouchableHighlight>
         </View>
       )}
       keyExtractor={(boardsItem) => boardsItem.name}

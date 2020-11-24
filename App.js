@@ -5,7 +5,7 @@ import Boards from './src/views/Boards';
 import Header from './src/components/Lists/Header';
 import BottomToolbar from './src/components/Lists/BottomToolbar';
 import data from './src/resources/data.json';
-
+import 'react-native-gesture-handler';
 import Navigator from './src/routes';
 
 const styles = StyleSheet.create({
@@ -30,12 +30,7 @@ export default function App() {
     )));
 
   return (
-    <View style={styles.container}>
-      <Header />
-      { taskList }
-      <Text>Boardspart by raggi atm</Text>
-      <Boards />
-      <BottomToolbar />
-    </View>
+    <Navigator />
+
   );
 }
