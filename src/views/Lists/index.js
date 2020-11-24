@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import Header from '../../components/Lists/Header';
 import BottomToolbar from '../../components/Lists/BottomToolbar';
 
-class List extends React.Component {
+class Lists extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -14,3 +14,4 @@ class List extends React.Component {
     );
   }
 }
+export default Lists;

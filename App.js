@@ -4,6 +4,8 @@ import TaskItem from './src/components/Tasks';
 import Boards from './src/views/Boards';
 import data from './src/resources/data.json';
 
+import Navigator from './src/routes';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
 
   boarderItem: {
     margin: 10,
-  }
+  },
 });
 
 export default styles;
