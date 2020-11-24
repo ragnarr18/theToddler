@@ -31,6 +31,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Header />
       { taskList }
       <Text>Boardspart by raggi atm</Text>
       <Boards />
