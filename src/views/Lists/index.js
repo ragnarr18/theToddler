@@ -24,7 +24,12 @@ class Lists extends React.Component {
     );
 
     return (
-      listList
+      <View style={{ flex: 1 }}>
+        {/* arnar til að fá borderId þá geriru this.props.navigation.state.params.borderId */}
+        <Text>This is where a list should appear</Text>
+        <ListList lists={data.lists} navigation={this.props.navigation} />
+        <BottomToolbar />
+      </View>
     );
   }
 }
