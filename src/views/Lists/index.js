@@ -1,13 +1,17 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
-import Toolbar from '../../components/Lists/Toolbar';
+import { View, Text } from 'react-native';
+import Header from '../../components/Lists/Header';
+import BottomToolbar from '../../components/Lists/BottomToolbar';
 
-class List extends React.Component {
+class Lists extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Toolbar />
+        <Header />
+        <Text>This is where a list should appear</Text>
+        <BottomToolbar />
       </View>
     );
   }
 }
+export default Lists;

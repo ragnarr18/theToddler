@@ -4,13 +4,13 @@ import styles from './styles';
 
 const BoardsToolbar = ({ onAdd, onEdit, onRemove }) => (
   <View styleName="horizontal" style={styles.toolbar}>
-    <TouchableHighlight onPress={onAdd}>
+    <TouchableHighlight style={styles.toolbarAction} onPress={onAdd}>
       <Text>AddBoard</Text>
     </TouchableHighlight>
-    <TouchableHighlight onPress={onEdit}>
+    <TouchableHighlight style={styles.toolbarAction} onPress={onEdit}>
       <Text>EditBoard</Text>
     </TouchableHighlight>
-    <TouchableHighlight onPress={onRemove}>
+    <TouchableHighlight style={styles.toolbarAction} onPress={onRemove}>
       <Text>RemoveBoard</Text>
     </TouchableHighlight>
   </View>
