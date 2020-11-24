@@ -9,7 +9,7 @@ class Boards extends React.Component {
     return (
       <View>
         {/* {console.log(data.boards)} */}
-        <BoardsList boardsItems={ data.boards }/>
+        <BoardsList boardsItems={data.boards} />
         <BoardsToolbar />
       </View>
     );

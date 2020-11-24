@@ -3,10 +3,13 @@ import { View, Text } from 'react-native';
 import { PropTypes } from 'prop-types';
 
 function PureTaskItem(props) {
+  const { item } = props;
   const {
     id, name, description, isFinished, listId,
-  } = props;
+  } = item;
 
+  let status = 'not finished';
+  if (isFinished) { status = 'finisehd'; }
   return (
     <View>
       <Text>
@@ -23,7 +26,7 @@ function PureTaskItem(props) {
       </Text>
       <Text>
         Finished:
-        { isFinished }
+        { status }
       </Text>
       <Text>
         List Id:
@@ -38,6 +41,7 @@ PureTaskItem.defaultProps = {
 };
 
 PureTaskItem.propTypes = {
+  item: PropTypes.objectOf(PropTypes.any).isRequired,
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string,

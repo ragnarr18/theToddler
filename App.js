@@ -6,6 +6,8 @@ import Header from './src/components/Lists/Header';
 import BottomToolbar from './src/components/Lists/BottomToolbar';
 import data from './src/resources/data.json';
 
+import Navigator from './src/routes';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -20,9 +22,8 @@ export default function App() {
   data.tasks.map((n) => (
     taskList.push(
       <View>
-        <TaskItem source={n} />
+        <TaskItem item={n} />
         <Text>
-          {n.isFinished}
           ------
         </Text>
       </View>,
@@ -30,8 +31,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Header />
-      <Text>Open up App.js to start working on your app! testing 123</Text>
+      { taskList }
       <Text>Boardspart by raggi atm</Text>
       <Boards />
       <BottomToolbar />
