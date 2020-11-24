@@ -10,13 +10,13 @@ const BoardsList = (props) => (
     <FlatList
       numColumns={3}
       data={props.boardsItems}
-      renderItem={({ item: { thumbnailPhoto, name } }) => (
+      renderItem={({ item }) => (
         <View style={styles.boarderItem}>
           {console.log(props)}
-          <TouchableHighlight onPress={() => props.navigation.navigate('Lists', {borderId: 1})}>
+          <TouchableHighlight key={item.id} onPress={() => props.navigation.navigate('Lists', {borderId: item.id})}>
             <View>
-              <ImageThumbnail source={thumbnailPhoto} />
-              <Text>{name}</Text>
+              <ImageThumbnail source={item.thumbnailPhoto} />
+              <Text>{item.name}</Text>
             </View>
           </TouchableHighlight>
         </View>
