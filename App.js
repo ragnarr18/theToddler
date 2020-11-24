@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import TaskItem from './src/components/Tasks';
 import Boards from './src/views/Boards';
 import data from './src/resources/data.json';
-
+import 'react-native-gesture-handler';
 import Navigator from './src/routes';
 
 const styles = StyleSheet.create({
@@ -28,10 +28,7 @@ export default function App() {
     )));
 
   return (
-    <View style={styles.container}>
-      { taskList }
-      <Text>Boardspart by raggi atm</Text>
-      <Boards />
-    </View>
+    <Navigator />
+
   );
 }

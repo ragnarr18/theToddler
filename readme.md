@@ -23,3 +23,14 @@ ragnarr18: Ragnar Geir Ragnarsson
 bjarnib18: Bjarni Berg Björgvinsson
 
 arnarp18: Arnar Snær Pálsson
+
+
+
+bjarni app.js
+
+<View style={styles.container}>
+  { taskList }
+  <Text>Boardspart by raggi atm</Text>
+  <Navigator />
+  {/* <Boards /> */}
+</View>
