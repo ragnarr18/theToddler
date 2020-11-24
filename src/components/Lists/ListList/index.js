@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, FlatList, Text } from 'react-native';
 
-const ListList = (props) => (
+const ListList = ({ lists, navigation: { navigate } }) => (
   <View style={{ flex: 1 }}>
     <FlatList
       numColumns={1}
-      data={props.lists}
+      data={lists}
       renderItem={({ item: { name, color } }) => (
         <Text style={{ backgroundColor: color }}>{name}</Text>
       )}

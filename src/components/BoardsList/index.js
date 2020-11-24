@@ -1,19 +1,19 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import {
   View, Text, FlatList, TouchableHighlight,
 } from 'react-native';
 import styles from './styles';
 import ImageThumbnail from '../ImageThumbnail';
 
-const BoardsList = (props) => (
+const BoardsList = ({ boardsItems, navigation: { navigate } }) => (
   <View styleName="horizontal" style={styles.container}>
     <FlatList
       numColumns={3}
-      data={props.boardsItems}
+      data={boardsItems}
       renderItem={({ item }) => (
         <View style={styles.boarderItem}>
-          {console.log(props)}
-          <TouchableHighlight key={item.id} onPress={() => props.navigation.navigate('Lists', { borderId: item.id })}>
+          <TouchableHighlight key={item.id} onPress={() => navigate('Lists', { boardId: item.id })}>
             <View>
               <ImageThumbnail source={item.thumbnailPhoto} />
               <Text>{item.name}</Text>
@@ -25,5 +25,16 @@ const BoardsList = (props) => (
     />
   </View>
 );
+
+BoardsList.propTypes = {
+  boardsItems: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    thumbnailPhoto: PropTypes.string.isRequired,
+  })).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default BoardsList;
