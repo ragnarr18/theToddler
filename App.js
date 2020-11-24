@@ -18,19 +18,7 @@ const styles = StyleSheet.create({
 });
 
 export default function App() {
-  const taskList = [];
-  data.tasks.map((n) => (
-    taskList.push(
-      <View>
-        <TaskItem item={n} />
-        <Text>
-          ------
-        </Text>
-      </View>,
-    )));
-
   return (
     <Navigator />
-
   );
 }
