@@ -1,22 +1,22 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import {
   View, Text, FlatList, TouchableHighlight,
 } from 'react-native';
 import styles from './styles';
 import ImageThumbnail from '../ImageThumbnail';
 
-const BoardsList = (props) => (
+const BoardsList = ({ boardsItems, navigation: { navigate } }) => (
   <View styleName="horizontal" style={styles.container}>
     <FlatList
       numColumns={3}
-      data={props.boardsItems}
-      renderItem={({ item: { thumbnailPhoto, name } }) => (
+      data={boardsItems}
+      renderItem={({ item }) => (
         <View style={styles.boarderItem}>
-          {console.log(props)}
-          <TouchableHighlight onPress={() => props.navigation.navigate('Lists', {borderId: 1})}>
+          <TouchableHighlight key={item.id} onPress={() => navigate('Lists', { boardId: item.id })}>
             <View>
-              <ImageThumbnail source={thumbnailPhoto} />
-              <Text>{name}</Text>
+              <ImageThumbnail source={item.thumbnailPhoto} />
+              <Text>{item.name}</Text>
             </View>
           </TouchableHighlight>
         </View>
@@ -25,5 +25,16 @@ const BoardsList = (props) => (
     />
   </View>
 );
+
+BoardsList.propTypes = {
+  boardsItems: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    thumbnailPhoto: PropTypes.string.isRequired,
+  })).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default BoardsList;
