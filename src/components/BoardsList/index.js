@@ -1,17 +1,21 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import styles from './styles';
+import ImageThumbnail from '../ImageThumbnail';
 
 const BoardsList = ({ boardsItems }) => (
-  <View style={styles.container}>
+  <View styleName="horizontal" style={styles.container}>
     {console.log(boardsItems)}
     <FlatList
-      numColoms={3}
+      numColumns={3}
       data={boardsItems}
       renderItem={({ item: { thumbnailPhoto, name } }) => (
-        <Text>{name}</Text>
+        <View style={styles.boarderItem}>
+          <ImageThumbnail source={thumbnailPhoto} />
+          <Text>{name}</Text>
+        </View>
       )}
-      keyExtractor={(boardsItems) => boardsItems.thumbnailPhoto}
+      keyExtractor={(boardsItem) => boardsItem.name}
     />
   </View>
 );
