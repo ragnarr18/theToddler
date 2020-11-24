@@ -18,9 +18,8 @@ export default function App() {
   data.tasks.map((n) => (
     taskList.push(
       <View>
-        <TaskItem source={n} />
+        <TaskItem item={n} />
         <Text>
-          {n.isFinished}
           ------
         </Text>
       </View>,

@@ -1,12 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { PropTypes } from 'prop-types';
+// import { PropTypes } from 'prop-types';
 
-function PureTaskItem(props) {
+function PureTaskItem(item) {
   const {
-    id, name, description, isFinished, listId,
-  } = props;
-
+    id, name, description, isFinished, listId
+  } = item;
   return (
     <View>
       <Text>
@@ -32,7 +31,7 @@ function PureTaskItem(props) {
     </View>
   );
 }
-
+/*
 PureTaskItem.defaultProps = {
   description: '',
 };
@@ -44,6 +43,7 @@ PureTaskItem.propTypes = {
   isFinished: PropTypes.bool.isRequired,
   listId: PropTypes.number.isRequired,
 };
+*/
 
 const TaskItem = React.memo(PureTaskItem);
 export default TaskItem;
