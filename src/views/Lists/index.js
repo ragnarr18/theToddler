@@ -12,7 +12,7 @@ class Lists extends React.Component {
         {/* oi arnar til að fá borderId þá geriru this.props.navigation.state.params.borderId */}
         {console.log(this.props.navigation.state)}
         <Text>This is where a list should appear</Text>
-        <ListList lists={data.lists} navigation={this.props.navigation.state.params.borderId} />
+        <ListList lists={data.lists} navigation={this.props.navigation} id={ this.props.navigation.state.params.borderId }/>
         <BottomToolbar />
       </View>
     );
