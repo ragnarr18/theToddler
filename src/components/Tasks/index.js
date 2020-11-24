@@ -1,11 +1,15 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-// import { PropTypes } from 'prop-types';
+import { PropTypes } from 'prop-types';
 
-function PureTaskItem(item) {
+function PureTaskItem({ item }) {
+  // const {
+  //  id, name, description, isFinished, listId,
+  // } = { item };
+  const { task } = item;
   const {
-    id, name, description, isFinished, listId
-  } = item;
+    id, name, description, isFinished, listId,
+  } = { task };
   return (
     <View>
       <Text>
@@ -31,6 +35,10 @@ function PureTaskItem(item) {
     </View>
   );
 }
+
+PureTaskItem.propTypes = {
+  item: PropTypes.object.isRequired
+};
 /*
 PureTaskItem.defaultProps = {
   description: '',
