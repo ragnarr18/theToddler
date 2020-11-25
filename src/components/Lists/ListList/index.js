@@ -1,13 +1,18 @@
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
+import {
+  View, FlatList, TouchableHighlight, Text,
+} from 'react-native';
+import styles from './styles';
 
-const ListList = ({ lists, navigation: { navigate } }) => (
-  <View style={{ flex: 1 }}>
+const ListList = (props) => (
+  <View style={styles.listOverhead}>
     <FlatList
       numColumns={1}
-      data={lists}
+      data={props.lists}
       renderItem={({ item: { name, color } }) => (
-        <Text style={{ backgroundColor: color }}>{name}</Text>
+        <TouchableHighlight style={{ backgroundColor: color }}>
+          <Text style={styles.listText}>{name}</Text>
+        </TouchableHighlight>
       )}
       keyExtractor={(listItem) => listItem.id}
     />
