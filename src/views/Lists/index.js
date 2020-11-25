@@ -4,11 +4,12 @@ import Header from '../../components/Lists/Header';
 import BottomToolbar from '../../components/Lists/BottomToolbar';
 import ListList from '../../components/Lists/ListList';
 import data from '../../resources/data.json';
+import AddList from '../../components/Lists/AddList';
 
 class Lists extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { lists: data.lists };
+    this.state = { lists: data.lists, isAddModalOpen: false };
   }
 
   render() {
@@ -22,7 +23,10 @@ class Lists extends React.Component {
           lists={tempArray}
           navigation={navigation}
         />
-        <BottomToolbar />
+        <BottomToolbar onAdd={() => this.setState({ isAddModalOpen: true })} />
+        <AddList
+          isOpen={isAddModalOpen}
+          closeModel={() => this.setState({ isAddModalOpen: false })}/>
       </View>
     );
   }
