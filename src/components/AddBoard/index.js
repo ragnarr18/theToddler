@@ -3,24 +3,17 @@ import { Text, TouchableHighlight, View } from 'react-native';
 
 import Modal from 'modal-react-native-web';
 
-export default class Example extends Component {
-  state = {
-    modalVisible: false,
-  };
+// function setModalVisible(visible) {
+//   this.setState({modalVisible: visible});
+// }
 
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  }
-
-  render() {
-    return (
+const addModal = ({isOpen, closeModel}) => (
       <View style={{marginTop: 22}}>
         <Modal
           animationType="slide"
           transparent={false}
-          visible={this.state.modalVisible}
+          visible={isOpen}
           onDismiss={() => {
-            alert('Modal has been closed.');
           }}>
           <View style={{marginTop: 22}}>
             <View>
@@ -28,7 +21,7 @@ export default class Example extends Component {
 
               <TouchableHighlight
                 onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
+                  isOpen = false;
                 }}>
                 <Text>Hide Modal</Text>
               </TouchableHighlight>
@@ -38,11 +31,11 @@ export default class Example extends Component {
 
         <TouchableHighlight
           onPress={() => {
-            this.setModalVisible(true);
+            isOpen=true;
           }}>
           <Text>Show Modal</Text>
         </TouchableHighlight>
       </View>
     );
-  }
-}
+
+export default addModal;
