@@ -20,7 +20,8 @@ class Boards extends React.Component {
         <BoardsToolbar onAdd={() => this.setState({ isAddModalOpen: true })} />
         <AddBoard
           isOpen={isAddModalOpen}
-          closeModel={() => this.setState({ isAddModalOpen: false })}/>
+          closeModel={() => this.setState({ isAddModalOpen: false })}
+        />
       </View>
     );
   }
