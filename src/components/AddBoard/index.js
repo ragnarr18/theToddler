@@ -13,28 +13,30 @@ const addModal = ({isOpen, closeModel}) => (
           animationType="slide"
           transparent={false}
           visible={isOpen}
+          hasBackdrop
           onDismiss={() => {
           }}>
           <View style={{marginTop: 22}}>
             <View>
+              {console.log("modal isOpen: ", isOpen )}
               <Text>Hello World!</Text>
 
-              <TouchableHighlight
+              {/* <TouchableHighlight
                 onPress={() => {
-                  isOpen = false;
+                  {closeModel}
                 }}>
                 <Text>Hide Modal</Text>
-              </TouchableHighlight>
+              </TouchableHighlight> */}
             </View>
           </View>
         </Modal>
 
-        <TouchableHighlight
+        {/* <TouchableHighlight
           onPress={() => {
-            isOpen=true;
+
           }}>
           <Text>Show Modal</Text>
-        </TouchableHighlight>
+        </TouchableHighlight> */}
       </View>
     );
 

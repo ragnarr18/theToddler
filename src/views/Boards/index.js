@@ -8,15 +8,19 @@ import AddBoard from '../../components/AddBoard';
 class Boards extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { };
+    this.state = { isAddModalOpen: false };
   }
 
   render() {
+    const { isAddModalOpen } = this.state;
+    const { navigation } = this.props;
     return (
       <View>
-        <AddBoard isOpen={false} closeModel={false}/>
-        <BoardsList boardsItems={data.boards} navigation={this.props.navigation} />
-        <BoardsToolbar />
+        <BoardsList boardsItems={data.boards} navigation={navigation} />
+        <BoardsToolbar onAdd={() => this.setState({ isAddModalOpen: true })} />
+        <AddBoard
+          isOpen={isAddModalOpen}
+          closeModel={() => this.setState({ isAddModalOpen: false })}/>
       </View>
     );
   }

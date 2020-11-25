@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
 import styles from './styles';
-import AddBoard from '../AddBoard';
-const isAddModalOpen = false;
+import AddModal from '../AddBoard';
+const isAddModalOpen = true;
 
 const BoardsToolbar = ({ onAdd, onEdit, onRemove }) => (
   <View styleName="horizontal" style={styles.toolbar}>
@@ -15,7 +15,6 @@ const BoardsToolbar = ({ onAdd, onEdit, onRemove }) => (
     <TouchableHighlight style={styles.toolbarAction} onPress={onRemove}>
       <Text>RemoveBoard</Text>
     </TouchableHighlight>
-    {/* <AddBoard isOpen={isAddModalOpen} /> */}
   </View>
 );
 
