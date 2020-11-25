@@ -1,5 +1,5 @@
 import React from 'react';
-import View from 'react-native';
+import { View } from 'react-native';
 import Header from '../../components/Lists/Header';
 import BottomToolbar from '../../components/Lists/BottomToolbar';
 import data from '../../resources/data.json';
