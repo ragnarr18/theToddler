@@ -15,7 +15,7 @@ class Lists extends React.Component {
   render() {
     const { navigation } = this.props;
     const { boardId } = navigation.state.params;
-    const { lists } = this.state;
+    const { lists, isAddModalOpen } = this.state;
     const tempArray = lists.filter((list) => list.boardId === boardId);
     return (
       <View style={{ flex: 1 }}>
@@ -26,7 +26,8 @@ class Lists extends React.Component {
         <BottomToolbar onAdd={() => this.setState({ isAddModalOpen: true })} />
         <AddList
           isOpen={isAddModalOpen}
-          closeModel={() => this.setState({ isAddModalOpen: false })}/>
+          closeModel={() => this.setState({ isAddModalOpen: false })}
+        />
       </View>
     );
   }
