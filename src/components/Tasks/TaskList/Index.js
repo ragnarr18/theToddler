@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import TaskItem from '../../Tasks';
+import TaskItem from '../TaskItem';
 import data from '../../../resources/data.json';
 
 function PureTaskList(props) {

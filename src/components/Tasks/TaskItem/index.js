@@ -20,9 +20,9 @@ function PureTaskItem(props) {
       check = <View style={styles.checkboxDone} />
     }
     if (!collapse) {
-      img = <View style={{ position: 'absolute', right: 10 }}><Image style={styles.icon} source={require('../../images/arrow01.png')} /></View>
+      img = <View style={{ position: 'absolute', right: 10 }}><Image style={styles.icon} source={require('../../../images/arrow01.png')} /></View>
     } else {
-      img = <View style={{ position: 'absolute', right: 10 }}><Image style={styles.icon} source={require('../../images/arrow02.png')} /></View>
+      img = <View style={{ position: 'absolute', right: 10 }}><Image style={styles.icon} source={require('../../../images/arrow02.png')} /></View>
     }
 
     return (

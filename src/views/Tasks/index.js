@@ -1,9 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
-import Header from '../../components/Lists/Header';
-import BottomToolbar from '../../components/Lists/BottomToolbar';
+import TaskToolbar from '../../components/Tasks/TaskToolbar';
 import data from '../../resources/data.json';
-import TaskItem from '../../components/Tasks/index';
+import TaskItem from '../../components/Tasks/TaskItem/index';
 
 function PureTask(props) {
   const { navigation } = props;
@@ -19,10 +18,10 @@ function PureTask(props) {
     )));
 
   return (
+    // header is automatically applied
     <View>
-      <Header />
       { taskList }
-      <BottomToolbar />
+      <TaskToolbar />
     </View>
   );
 }
