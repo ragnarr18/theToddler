@@ -14,7 +14,7 @@ class Boards extends React.Component {
   render() {
     return (
       <View>
-        <AddBoard />
+        <AddBoard isOpen={false} closeModel={false}/>
         <BoardsList boardsItems={data.boards} navigation={this.props.navigation} />
         <BoardsToolbar />
       </View>
