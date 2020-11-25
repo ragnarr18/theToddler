@@ -15,7 +15,7 @@ const BoardsToolbar = ({ onAdd, onEdit, onRemove }) => (
     <TouchableHighlight style={styles.toolbarAction} onPress={onRemove}>
       <Text>RemoveBoard</Text>
     </TouchableHighlight>
-    <AddBoard isOpen={isAddModalOpen} />
+    {/* <AddBoard isOpen={isAddModalOpen} /> */}
   </View>
 );
 

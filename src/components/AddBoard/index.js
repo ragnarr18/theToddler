@@ -1,27 +1,48 @@
-import React, {useState} from 'react';
-import {Button, Text, View} from 'react-native';
-import Modal from 'react-native-modal';
+import React, { Component } from 'react';
+import { Text, TouchableHighlight, View } from 'react-native';
 
-function ModalTester() {
-  const [isModalVisible, setModalVisible] = useState(false);
+import Modal from 'modal-react-native-web';
 
-  const toggleModal = () => {
-    setModalVisible(!isModalVisible);
+export default class Example extends Component {
+  state = {
+    modalVisible: false,
   };
 
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
+  }
+
+  render() {
     return (
-      <View style={{flex: 1}}>
-        <Button title="Show modal" onPress={toggleModal} />
+      <View style={{marginTop: 22}}>
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onDismiss={() => {
+            alert('Modal has been closed.');
+          }}>
+          <View style={{marginTop: 22}}>
+            <View>
+              <Text>Hello World!</Text>
 
-        <Modal visible={false}>
-          <View style={{flex: 1}}>
-            <Text>Hello!</Text>
-
-            <Button title="Hide modal" onPress={toggleModal} />
+              <TouchableHighlight
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}>
+                <Text>Hide Modal</Text>
+              </TouchableHighlight>
+            </View>
           </View>
         </Modal>
+
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+          }}>
+          <Text>Show Modal</Text>
+        </TouchableHighlight>
       </View>
     );
+  }
 }
-
-export default ModalTester;
