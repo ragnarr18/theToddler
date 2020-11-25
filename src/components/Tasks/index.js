@@ -11,7 +11,7 @@ function PureTaskItem(props) {
   } = item;
 
   function renderIconView(collapse) {
-    let src = null;
+    let img = null;
     let check = null;
 
     if (isFinished) {
@@ -19,10 +19,10 @@ function PureTaskItem(props) {
     } else {
       check = <View style={styles.checkboxDone} />
     }
-    if (collapse) {
-      src = <View><Image source={require('../../images/arrow01.png')} /></View>
+    if (!collapse) {
+      img = <View style={{ position: 'absolute', right: 10 }}><Image style={styles.icon} source={require('../../images/arrow01.png')} /></View>
     } else {
-      src = <View><Image source={require('../../images/arrow02.png')} /></View>
+      img = <View style={{ position: 'absolute', right: 10 }}><Image style={styles.icon} source={require('../../images/arrow02.png')} /></View>
     }
 
     return (
@@ -31,9 +31,7 @@ function PureTaskItem(props) {
         <Text>
           { name }
         </Text>
-        <View>
-          { src }
-        </View>
+        { img }
       </View>
     );
   }

@@ -11,7 +11,6 @@ export default StyleSheet.create({
   },
   container: {
     flex: 1,
-    width: 400,
     backgroundColor: '#aaaaaa',
     borderColor: '#111111',
     borderWidth: 1,
@@ -42,6 +41,10 @@ export default StyleSheet.create({
     height: 20,
     width: 20,
     marginRight: 10,
-    backgroundColor: '#11ff11'
-  }
+    backgroundColor: '#11ff11',
+  },
+  icon: {
+    width: 15,
+    height: 15,
+  },
 });
