@@ -2,7 +2,6 @@ import React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
 import styles from './styles';
 import AddModal from '../AddBoard';
-const isAddModalOpen = true;
 
 const BoardsToolbar = ({ onAdd, onEdit, onRemove }) => (
   <View styleName="horizontal" style={styles.toolbar}>

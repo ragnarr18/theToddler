@@ -18,7 +18,6 @@ class Lists extends React.Component {
     const tempArray = lists.filter((list) => list.boardId === boardId);
     return (
       <View style={{ flex: 1 }}>
-        <Text>This is where a list should appear</Text>
         <ListList
           lists={tempArray}
           navigation={navigation}
