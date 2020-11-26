@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import Modal from '../../modals/addBoard';
 import styles from './styles';
+import createBoard from '../../services/createBoard';
 
 class InputComponent extends React.Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class InputComponent extends React.Component {
         />
         <Button
           title="Create Board"
-          onPress={() => Alert.alert(`Board ${name} was created! \n${thumbnailPhoto}`)}
+          onPress={() => createBoard(name, thumbnailPhoto)}
         />
       </Modal>
 
