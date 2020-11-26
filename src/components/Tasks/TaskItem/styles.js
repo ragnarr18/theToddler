@@ -28,7 +28,7 @@ export default StyleSheet.create({
     padding: 20,
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     backgroundColor: '#ffffff',
   },
   checkbox: {
