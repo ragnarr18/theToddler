@@ -1,26 +1,16 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, TouchableHighlight } from 'react-native';
 import { PropTypes } from 'prop-types';
-import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
-import ClickableIcon from '../../ClickableIcon';
 import styles from './styles';
-import data from '../../../resources/data.json';
-
-function placeHolderFunction() {
-  console.log('hello');
-}
 
 function PureTaskItem(props) {
   const icon = require('../../../images/delete.png');
-  const { item } = props;
+  const { navigation, item } = props;
+  const { navigate } = navigation;
   const {
-    id, name, description, isFinished,
+    name, description, isFinished,
   } = item;
 
-  function deleteSelf() {
-    data.tasks = data.tasks.filter((t) => t.id !== { id });
-    console.log(id, data.tasks.length);
-  }
 
   const renderView = () => {
     let check = null;
@@ -32,44 +22,40 @@ function PureTaskItem(props) {
     return (
       <View style={styles.iconView}>
         {check}
-        <Text>
-          {name}
-        </Text>
+        <TouchableHighlight onPress={() => navigate('TaskDetails', { item })}>
+          <Text>
+            {name}
+          </Text>
+        </TouchableHighlight>
       </View>
     );
   };
 
-  const renderCollapsedView = (
-    <View style={styles.collapseView}>
-      <Text>{description}</Text>
-      <ClickableIcon iconSource={icon} iconFunction={deleteSelf} />
-    </View>
-  );
-
   return (
     <View>
-      <Collapse style={styles.container}>
-        <CollapseHeader>
-          {renderView()}
-        </CollapseHeader>
-        <CollapseBody>
-          {renderCollapsedView}
-        </CollapseBody>
-      </Collapse>
+      {renderView()}
     </View>
   );
 }
 
+/*
 PureTaskItem.defaultProps = {
   description: '',
 };
 
 PureTaskItem.propTypes = {
-  item: PropTypes.objectOf(PropTypes.any).isRequired,
-  name: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  isFinished: PropTypes.bool.isRequired,
+  item: PropTypes.objectOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    isFinished: PropTypes.bool.isRequired,
+    listId: PropTypes.number.isRequired
+  })).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
+*/
 
 const TaskItem = React.memo(PureTaskItem);
 export default TaskItem;
