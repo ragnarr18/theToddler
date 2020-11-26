@@ -1,19 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  View, FlatList, TouchableHighlight, Text,
+  View, FlatList, TouchableHighlight, Text, TouchableOpacity,
 } from 'react-native';
 import styles from './styles';
 
-const ListList = ({ lists, navigation: { navigate } }) => (
+const ListList = ({ lists, navigation: { navigate }, onLongPress }) => (
   <View style={styles.listOverhead}>
     <FlatList
       numColumns={1}
       data={lists}
       renderItem={({ item: { id, name, color } }) => (
-        <TouchableHighlight key={id} style={{ backgroundColor: color }} onPress={() => navigate('Tasks', { listId: id })}>
-          <Text style={styles.listText}>{name}</Text>
-        </TouchableHighlight>
+        <TouchableOpacity onLongPress={() => onLongPress(name)}>
+          <TouchableHighlight
+            key={id}
+            style={{ backgroundColor: color }}
+            onPress={() => navigate('Tasks', { listId: id })}
+          >
+            <Text style={styles.listText}>{name}</Text>
+          </TouchableHighlight>
+        </TouchableOpacity>
       )}
       keyExtractor={(listItem) => listItem.id}
     />
