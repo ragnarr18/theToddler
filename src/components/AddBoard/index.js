@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View, TextInput, Text, TouchableOpacity, Button, Alert,
 } from 'react-native';
-import Modal from '../../modals/addBoard';
+import Modal from '../../modals/BoardModal';
 import styles from './styles';
 import createBoard from '../../services/createBoard';
 
