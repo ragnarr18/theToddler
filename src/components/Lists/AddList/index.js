@@ -1,43 +1,76 @@
-import React, { Component } from 'react';
-import { Text, TouchableHighlight, View } from 'react-native';
+import React from 'react';
+import {
+  TextInput, Text, Button,
+} from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
+import Modal from '../../../modals/BoardModal';
+import styles from './styles';
+import createList from '../../../services/createList';
 
-import Modal from 'react-native-modal';
+class InputComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: 'New list', color: '#fafafa' };
+  }
 
-// function setModalVisible(visible) {
-//   this.setState({modalVisible: visible});
-// }
+  updateName(text) {
+    this.setState({ name: text });
+  }
 
-const addModal = ({ isOpen, closeModel }) => (
-  <View style={{ marginTop: 22 }}>
-    <Modal
-      animationType="slide"
-      transparent={false}
-      visible={isOpen}
-      hasBackdrop
-      onDismiss={() => {
-      }}
-    >
-      <View style={{ marginTop: 22 }}>
-        <View>
-          <Text>Hello World!</Text>
+  updateColor(text) {
+    this.setState({ color: text });
+  }
 
-          {/* <TouchableHighlight
-                onPress={() => {
-                  {closeModel}
-                }}>
-                <Text>Hide Modal</Text>
-              </TouchableHighlight> */}
-        </View>
-      </View>
-    </Modal>
+  render() {
+    const { closeModel, isOpen, boardId } = this.props;
+    const { name, color } = this.state;
+    return (
+      <Modal
+        closeModel={closeModel}
+        isOpen={isOpen}
+      >
+        <Text>List Name:</Text>
+        <TextInput
+          placeholder="Grocery List"
+          value={name}
+          onChangeText={(text) => this.updateName(text)}
+          style={styles.input}
+        />
 
-    {/* <TouchableHighlight
-          onPress={() => {
+        <Text>List color:</Text>
+        <DropDownPicker
+          items={[
+            {
+              label: 'White', value: '#fafafa', selected: true,
+            },
+            { label: 'Gray', value: '#808080' },
+            { label: 'Red', value: '#FF0000' },
+          ]}
+          defaultValue={color}
+          placeholder="Select a color!"
+          containerStyle={{
+            height: 40,
+            width: 150,
+          }}
+          style={{
+            backgroundColor: '#fafafa',
+            width: 40,
+          }}
+          itemStyle={{
+            justifyContent: 'center',
+          }}
+          dropDownStyle={{ backgroundColor: '#fafafa' }}
+          onChangeItem={(item) => this.setState({
+            color: item.value,
+          })}
+        />
+        <Button
+          title="Create List"
+          onPress={() => createList(name, color, boardId)}
+        />
+      </Modal>
+    );
+  }
+}
 
-          }}>
-          <Text>Show Modal</Text>
-        </TouchableHighlight> */}
-  </View>
-);
-
-export default addModal;
+export default InputComponent;

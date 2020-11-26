@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import Header from '../../components/Lists/Header';
+import { View } from 'react-native';
+/* import Header from '../../components/Lists/Header'; */
 import BottomToolbar from '../../components/Lists/BottomToolbar';
 import ListList from '../../components/Lists/ListList';
 import data from '../../resources/data.json';
@@ -45,6 +45,7 @@ class Lists extends React.Component {
         <AddList
           isOpen={isAddModalOpen}
           closeModel={() => this.setState({ isAddModalOpen: false })}
+          boardId={navigation.state.params.boardId}
         />
       </View>
     );
