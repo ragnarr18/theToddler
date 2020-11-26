@@ -8,7 +8,7 @@ import styles from './styles';
 // }
 
 const addModal = ({ isOpen, closeModel, children }) => {
-const [text, setText] = React.useState('');
+  const [text, setText] = React.useState('');
   return (
     <Modal
       style={styles.model}
@@ -26,7 +26,7 @@ const [text, setText] = React.useState('');
         {children}
       </View>
     </Modal>
-);
-}
+  );
+};
 
 export default addModal;
