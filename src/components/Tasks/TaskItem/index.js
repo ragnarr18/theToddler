@@ -15,14 +15,14 @@ function PureTaskItem(props) {
     let check = null;
 
     if (isFinished) {
-      check = <View style={styles.checkbox} />
+      check = <View style={styles.checkbox} />;
     } else {
-      check = <View style={styles.checkboxDone} />
+      check = <View style={styles.checkboxDone} />;
     }
     if (!collapse) {
-      img = <View style={{ position: 'absolute', right: 10 }}><Image style={styles.icon} source={require('../../../images/arrow01.png')} /></View>
+      img = <View style={{ position: 'absolute', right: 10 }}><Image style={styles.icon} source={require('../../../images/arrow01.png')} /></View>;
     } else {
-      img = <View style={{ position: 'absolute', right: 10 }}><Image style={styles.icon} source={require('../../../images/arrow02.png')} /></View>
+      img = <View style={{ position: 'absolute', right: 10 }}><Image style={styles.icon} source={require('../../../images/arrow02.png')} /></View>;
     }
 
     return (
@@ -41,7 +41,7 @@ function PureTaskItem(props) {
       <View style={styles.collapseView}>
         <Text>{description}</Text>
       </View>
-    )
+    );
   }
 
   return (
