@@ -4,14 +4,14 @@ import TaskItem from '../TaskItem';
 import data from '../../../resources/data.json';
 
 function PureTaskList(props) {
-  const { listId } = props;
+  const { listId, navigation } = props;
   const taskArray = [];
   const listTasks = data.tasks.filter((task) => task.listId === listId);
   if (listTasks.length > 0) {
     listTasks.map((n) => (
       taskArray.push(
         <View>
-          <TaskItem item={n} />
+          <TaskItem item={n} navigation={navigation} />
         </View>,
       )
     ));

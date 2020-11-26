@@ -43,8 +43,11 @@ export default StyleSheet.create({
     marginRight: 10,
     backgroundColor: '#11ff11',
   },
+  removeContainer: {
+    padding: 10,
+  },
   icon: {
-    width: 15,
-    height: 15,
+    width: 20,
+    height: 20,
   },
 });
