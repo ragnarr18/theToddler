@@ -1,43 +1,56 @@
-import React, { Component } from 'react';
-import { Text, TouchableHighlight, View } from 'react-native';
+import React from 'react';
+import {
+  TextInput, Text, Button,
+} from 'react-native';
+import Modal from '../../../modals/addBoard';
+import styles from './styles';
+import createList from '../../../services/createList';
 
-import Modal from 'react-native-modal';
+class InputComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: '', color: '' };
+  }
 
-// function setModalVisible(visible) {
-//   this.setState({modalVisible: visible});
-// }
+  updateName(text) {
+    this.setState({ name: text });
+  }
 
-const addModal = ({ isOpen, closeModel }) => (
-  <View style={{ marginTop: 22 }}>
-    <Modal
-      animationType="slide"
-      transparent={false}
-      visible={isOpen}
-      hasBackdrop
-      onDismiss={() => {
-      }}
-    >
-      <View style={{ marginTop: 22 }}>
-        <View>
-          <Text>Hello World!</Text>
+  updateColor(text) {
+    this.setState({ color: text });
+  }
 
-          {/* <TouchableHighlight
-                onPress={() => {
-                  {closeModel}
-                }}>
-                <Text>Hide Modal</Text>
-              </TouchableHighlight> */}
-        </View>
-      </View>
-    </Modal>
+  render() {
+    const { closeModel, isOpen } = this.props;
+    const { name, color, boardId } = this.state;
+    return (
+      <Modal
+        closeModel={closeModel}
+        isOpen={isOpen}
+      >
+        <Text>List Name:</Text>
+        <TextInput
+          placeholder="Grocery List"
+          value={name}
+          onChangeText={(text) => this.updateName(text)}
+          style={styles.input}
+        />
 
-    {/* <TouchableHighlight
-          onPress={() => {
+        <Text>List color:</Text>
+        <TextInput
+          placeholder="white, black, purple"
+          multiline
+          value={color}
+          onChangeText={(text) => this.updateColor(text)}
+          style={styles.input}
+        />
+        <Button
+          title="Create List"
+          onPress={() => createList(name, color, boardId)}
+        />
+      </Modal>
+    );
+  }
+}
 
-          }}>
-          <Text>Show Modal</Text>
-        </TouchableHighlight> */}
-  </View>
-);
-
-export default addModal;
+export default InputComponent;
