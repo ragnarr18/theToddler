@@ -7,7 +7,7 @@ export default StyleSheet.create({
     backgroundColor: '#ffa',
   },
   TaskItem: {
-    backgroundColor: 'aaa',
+    backgroundColor: '#faa',
   },
   container: {
     flex: 1,
@@ -28,14 +28,14 @@ export default StyleSheet.create({
     padding: 20,
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between left',
+    justifyContent: 'space-between',
     backgroundColor: '#ffffff',
   },
   checkbox: {
     height: 20,
     width: 20,
     marginRight: 10,
-    backgroundColor: '#ff1111'
+    backgroundColor: '#ff1111',
   },
   checkboxDone: {
     height: 20,

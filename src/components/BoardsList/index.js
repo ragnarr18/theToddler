@@ -9,10 +9,11 @@ import ImageThumbnail from '../ImageThumbnail';
 const BoardsList = ({ boardsItems, navigation: { navigate } }) => (
   <View styleName="horizontal" style={styles.container}>
     <FlatList
-      numColumns={3}
+      numColumns={2}
       data={boardsItems}
       renderItem={({ item }) => (
         <View style={styles.boarderItem}>
+          <Text> item </Text>
           <TouchableHighlight key={item.id} onPress={() => navigate('Lists', { boardId: item.id })}>
             <View>
               <ImageThumbnail source={item.thumbnailPhoto} />

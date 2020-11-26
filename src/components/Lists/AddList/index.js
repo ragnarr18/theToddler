@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text, TouchableHighlight, View } from 'react-native';
 
-import Modal from 'modal-react-native-web';
+import Modal from 'react-native-modal';
 
 // function setModalVisible(visible) {
 //   this.setState({modalVisible: visible});
