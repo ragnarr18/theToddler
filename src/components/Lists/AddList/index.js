@@ -2,7 +2,7 @@ import React from 'react';
 import {
   TextInput, Text, Button,
 } from 'react-native';
-import Modal from '../../../modals/addBoard';
+import Modal from '../../../modals/BoardModal';
 import styles from './styles';
 import createList from '../../../services/createList';
 
@@ -21,8 +21,8 @@ class InputComponent extends React.Component {
   }
 
   render() {
-    const { closeModel, isOpen } = this.props;
-    const { name, color, boardId } = this.state;
+    const { closeModel, isOpen, boardId } = this.props;
+    const { name, color } = this.state;
     return (
       <Modal
         closeModel={closeModel}
