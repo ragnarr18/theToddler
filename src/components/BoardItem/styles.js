@@ -5,10 +5,12 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 
-  toolbar: {
-    flexDirection: 'row',
-    height: 80,
-    backgroundColor: '#ffa',
+  boardItem: {
+    margin: 10,
+  },
+
+  boardItemLongPress: {
+    backgroundColor: 'red',
   },
 });
 
