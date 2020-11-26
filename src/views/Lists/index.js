@@ -45,7 +45,7 @@ class Lists extends React.Component {
         <AddList
           isOpen={isAddModalOpen}
           closeModel={() => this.setState({ isAddModalOpen: false })}
-          boardId={navigation.state.params}
+          boardId={navigation.state.params.boardId}
         />
       </View>
     );

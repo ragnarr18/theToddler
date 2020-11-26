@@ -6,7 +6,7 @@ const createList = (name, color, boardId) => {
     boardId, color, id, name,
   };
   data.lists.push(list);
-  console.log(data.lists);
+  console.log(list);
 };
 
 export default createList;

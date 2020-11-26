@@ -2,7 +2,9 @@ import React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
 import styles from '../../../styles/bottomToolbar';
 
-function PureTaskToolbar({ onAdd, onEdit, onMove, onRemove }) {
+function PureTaskToolbar({
+  onAdd, onEdit, onMove, onRemove,
+}) {
   return (
     <View styleName="horizontal" style={styles.toolbar}>
       <TouchableHighlight onPress={onAdd} style={styles.toolbarAction}>
