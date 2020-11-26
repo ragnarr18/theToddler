@@ -2,6 +2,7 @@ import React from 'react';
 import {
   TextInput, Text, Button,
 } from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
 import Modal from '../../../modals/BoardModal';
 import styles from './styles';
 import createList from '../../../services/createList';
@@ -9,7 +10,7 @@ import createList from '../../../services/createList';
 class InputComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: '', color: '' };
+    this.state = { name: 'New list', color: '#fafafa' };
   }
 
   updateName(text) {
@@ -37,12 +38,31 @@ class InputComponent extends React.Component {
         />
 
         <Text>List color:</Text>
-        <TextInput
-          placeholder="white, black, purple"
-          multiline
-          value={color}
-          onChangeText={(text) => this.updateColor(text)}
-          style={styles.input}
+        <DropDownPicker
+          items={[
+            {
+              label: 'White', value: '#fafafa', selected: true,
+            },
+            { label: 'Gray', value: '#808080' },
+            { label: 'Red', value: '#FF0000' },
+          ]}
+          defaultValue={color}
+          placeholder="Select a color!"
+          containerStyle={{
+            height: 40,
+            width: 150,
+          }}
+          style={{
+            backgroundColor: '#fafafa',
+            width: 40,
+          }}
+          itemStyle={{
+            justifyContent: 'center',
+          }}
+          dropDownStyle={{ backgroundColor: '#fafafa' }}
+          onChangeItem={(item) => this.setState({
+            color: item.value,
+          })}
         />
         <Button
           title="Create List"
