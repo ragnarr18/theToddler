@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
   boarderItem: {
     margin: 10,
   },
+
+  boardItemLongPress: {
+    backgroundColor: 'red',
+  },
 });
 
 export default styles;
