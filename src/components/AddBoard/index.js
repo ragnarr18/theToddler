@@ -1,44 +1,56 @@
-import { Text, View } from 'react-native';
 import React from 'react';
-import Modal from 'react-native-modal';
+import {
+  View, TextInput, Text, TouchableOpacity, Button, Alert,
+} from 'react-native';
+import Modal from '../../modals/addBoard';
 import styles from './styles';
 
-// function setModalVisible(visible) {
-//   this.setState({modalVisible: visible});
-// }
+class InputComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: '', thumbnailPhoto: '' };
+  }
 
-const addModal = ({ isOpen, closeModel }) => (
-  <View style={styles.model}>
-    <Modal
-      animationType="slide"
-      transparent={false}
-      visible={isOpen}
-      hasBackdrop
-      onDismiss={() => {
-      }}
-    >
-      <View style={styles.body}>
-        <View>
-          {console.log('modal isOpen: ', isOpen)}
-          <Text>Hello World!</Text>
+  updateName(text) {
+    this.setState({ name: text });
+  }
 
-          {/* <TouchableHighlight
-                onPress={() => {
-                  {closeModel}
-                }}>
-                <Text>Hide Modal</Text>
-              </TouchableHighlight> */}
-        </View>
-      </View>
-    </Modal>
+  updateThumbnail(text) {
+    this.setState({ thumbnailPhoto: text });
+  }
 
-    {/* <TouchableHighlight
-          onPress={() => {
+  render() {
+    const { closeModel, isOpen } = this.props;
+    const { name, thumbnailPhoto } = this.state;
+    return (
+      <Modal
+        closeModel={closeModel}
+        isOpen={isOpen}
+      >
+        <Text>Name:</Text>
+        <TextInput
+          placeholder="Paris summer 2018"
+          value={name}
+          onChangeText={(text) => this.updateName(text)}
+          style={styles.input}
+        />
 
-          }}>
-          <Text>Show Modal</Text>
-        </TouchableHighlight> */}
-  </View>
-);
+        <Text>URL to thumbnail:</Text>
+        <TextInput
+          placeholder="e.g. tom-jerry-1.jpg"
+          multiline
+          value={thumbnailPhoto}
+          onChangeText={(text) => this.updateThumbnail(text)}
+          style={styles.input}
+        />
+        <Button
+          title="Create Board"
+          onPress={() => Alert.alert(`Board ${name} was created! \n${thumbnailPhoto}`)}
+        />
+      </Modal>
 
-export default addModal;
+    );
+  }
+}
+
+export default InputComponent;
