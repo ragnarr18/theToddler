@@ -1,14 +1,26 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { PropTypes } from 'prop-types';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
+import ClickableIcon from '../../ClickableIcon';
 import styles from './styles';
+import data from '../../../resources/data.json';
+
+function placeHolderFunction() {
+  console.log('hello');
+}
 
 function PureTaskItem(props) {
+  const icon = require('../../../images/delete.png');
   const { item } = props;
   const {
-    name, description, isFinished,
+    id, name, description, isFinished,
   } = item;
+
+  function deleteSelf() {
+    data.tasks = data.tasks.filter((t) => t.id !== { id });
+    console.log(id, data.tasks.length);
+  }
 
   const renderView = () => {
     let check = null;
@@ -30,6 +42,7 @@ function PureTaskItem(props) {
   const renderCollapsedView = (
     <View style={styles.collapseView}>
       <Text>{description}</Text>
+      <ClickableIcon iconSource={icon} iconFunction={deleteSelf} />
     </View>
   );
 
