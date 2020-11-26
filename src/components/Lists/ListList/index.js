@@ -5,7 +5,9 @@ import {
 } from 'react-native';
 import styles from './styles';
 
-const ListList = ({ lists, navigation: { navigate }, onLongPress }) => (
+const ListList = ({
+  lists, navigation: { navigate }, onLongPress, selectedLists,
+}) => (
   <View style={styles.listOverhead}>
     <FlatList
       numColumns={1}

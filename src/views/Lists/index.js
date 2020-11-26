@@ -17,7 +17,7 @@ class Lists extends React.Component {
     if (selectedLists.indexOf(name) !== -1) {
       // The list is already within the list
       this.setState({
-        selectedLists: selectedLists.filter((lists) => lists !== name),
+        selectedLists: selectedLists.filter((list) => list !== name),
       });
     } else {
       // The list needs to be added
@@ -31,14 +31,15 @@ class Lists extends React.Component {
     console.log(this.state.selectedLists);
     const { navigation } = this.props;
     const { boardId } = navigation.state.params;
-    const { lists, isAddModalOpen } = this.state;
+    const { lists, isAddModalOpen, selectedLists } = this.state;
     const tempArray = lists.filter((list) => list.boardId === boardId);
     return (
       <View style={{ flex: 1 }}>
         <ListList
           lists={tempArray}
           navigation={navigation}
-          onLongPress={(name) => this.onListLongPress()}
+          onLongPress={(name) => this.onListLongPress(name)}
+          selectedLists={selectedLists}
         />
         <BottomToolbar onAdd={() => this.setState({ isAddModalOpen: true })} />
         <AddList
