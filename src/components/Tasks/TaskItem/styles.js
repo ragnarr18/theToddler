@@ -10,7 +10,6 @@ export default StyleSheet.create({
     backgroundColor: '#faa',
   },
   container: {
-    flex: 1,
     backgroundColor: '#aaaaaa',
     borderColor: '#111111',
     borderWidth: 1,
@@ -25,10 +24,11 @@ export default StyleSheet.create({
     padding: 20,
   },
   iconView: {
+    height: 100,
     padding: 20,
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     backgroundColor: '#ffffff',
   },
   checkbox: {
