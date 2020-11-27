@@ -9,21 +9,23 @@ class PureTaskList extends React.Component {
   constructor(props) {
     super(props);
     const { listId, navigation } = props;
+    this.listId = listId;
+    this.navigation = navigation;
     this.taskArray = [];
-    this.listTasks = data.tasks.filter((task) => task.listId === listId);
+    this.listTasks = data.tasks.filter((task) => task.listId === this.listId);
 
     this.remove = function (id) {
       RemoveTask(id);
-      // this.forceUpdate();
+      console.log('first state: ', this.state);
       this.setState({ someValue: 1 });
-      console.log(this.state.someValue);
+      console.log('second state: ', this.state);
     }
 
     if (this.listTasks.length > 0) {
       this.listTasks.map((n) => (
         this.taskArray.push(
           <View>
-            <TaskItem remove={this.remove} item={n} navigation={navigation} />
+            <TaskItem remove={this.remove} item={n} navigation={this.navigation} />
           </View>,
         )
       ));
