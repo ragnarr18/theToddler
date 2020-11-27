@@ -37,7 +37,7 @@ class InputComponent extends React.Component {
       >
         <Text style={styles.title}>Create New List</Text>
         <Text style={styles.smallFont}>(Touch outside of box to exit this window)</Text>
-        <Text>List Name:</Text>
+        <Text style={styles.text}>List Name:</Text>
         <TextInput
           placeholder="Grocery List"
           defaultValue="New List"
@@ -46,7 +46,13 @@ class InputComponent extends React.Component {
           style={styles.input}
         />
 
-        <Text>List color:</Text>
+        <Button
+          title="Create List"
+          onPress={() => this.createListAndClose(name, color, boardId)}
+          style={styles.button}
+        />
+
+        <Text style={styles.text}>List color (Optional):</Text>
         <DropDownPicker
           items={[
             {
@@ -62,7 +68,7 @@ class InputComponent extends React.Component {
           containerStyle={{
             height: 40,
           }}
-          style={styles.input}
+          style={styles.inputDropdown}
           itemStyle={{
             justifyContent: 'center',
           }}
@@ -70,10 +76,6 @@ class InputComponent extends React.Component {
           onChangeItem={(item) => this.setState({
             color: item.value,
           })}
-        />
-        <Button
-          title="Create List"
-          onPress={() => this.createListAndClose(name, color, boardId)}
         />
       </Modal>
     );
