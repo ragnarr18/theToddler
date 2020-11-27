@@ -11,7 +11,6 @@ function PureTaskItem(props) {
     name, description, isFinished,
   } = item;
 
-
   const renderView = () => {
     let check = null;
     if (isFinished) {
