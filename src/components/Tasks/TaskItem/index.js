@@ -1,60 +1,57 @@
 import React from 'react';
-import { View, Text, TouchableHighlight } from 'react-native';
+import { View, Text, Image, TouchableHighlight } from 'react-native';
 import { PropTypes } from 'prop-types';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import styles from './styles';
 
-
 class PureTaskItem extends React.Component {
   constructor(props) {
     super(props);
-    const { remove, item, navigation } = props;
-    this.icon = require('../../../images/delete.png');
-    this.item = item;
-    this.remove = remove;
-    this.navigation = navigation;
-    this.navigate = this.navigation.navigate;
-    this.id = this.item.id;
-    this.name = this.item.name;
-    this.description = this.item.description;
-    this.isFinished = this.item.isFinished;
-  }
-
-  renderView() {
-    let check = null;
-    if (this.isFinished) {
-      check = <View style={styles.checkbox} />;
-    } else {
-      check = <View style={styles.checkboxDone} />;
-    }
-
-    return (
-      <View style={styles.iconView}>
-        {check}
-        <TouchableHighlight onPress={() => this.navigate('TaskDetails', this.item)}>
-          <Text>
-            {this.name}
-          </Text>
-        </TouchableHighlight>
-      </View>
-    );
+    this.state = {
+      isClosed: true
+    };
   }
 
   render() {
+    const {
+      remove, item
+    } = this.props;
+    const {
+      id, name, description, isFinished,
+    } = item;
+    const icon = require('../../../images/delete.png');
+    const arrow01 = require('../../../images/arrow01.png');
+    const arrow02 = require('../../../images/arrow02.png');
+
+    let check;
+    let arrow;
+    if (isFinished) {
+      check = <View style={styles.checkboxDone} />;
+    } else {
+      check = <View style={styles.checkbox} />;
+    }
+    if (this.state.isClosed) {
+      arrow = <Image style={styles.arrow} source={arrow01} />;
+    } else {
+      arrow = <Image style={styles.arrow} source={arrow02} />;
+    }
+
     return (
       <View>
-        <Collapse>
-          <CollapseHeader>
-            <Text>
-              {this.name}
+        <Collapse onToggle={(status) => this.setState({ isClosed: !status })}>
+          <CollapseHeader style={styles.iconView}>
+            {check}
+            <Text style={styles.title}>
+              {name}
             </Text>
+            {arrow}
           </CollapseHeader>
-          <CollapseBody>
-            <Text>
-              {this.description}
+          <CollapseBody style={styles.collapseView}>
+            <Text style={styles.description}>
+              {description}
             </Text>
-            <TouchableHighlight onPress={() => { this.remove(this.id); }}>
-              <Text>Remove</Text>
+            <TouchableHighlight key={id} onPress={() => { remove(id); }}>
+              <Image style={styles.icon} source={icon} />
             </TouchableHighlight>
           </CollapseBody>
         </Collapse>
@@ -63,34 +60,6 @@ class PureTaskItem extends React.Component {
   }
 }
 
-
-  /*
-  return (
-    <View>
-      {renderView()}
-    </View>
-  );
-}
-*/
-
-/*
-PureTaskItem.defaultProps = {
-  description: '',
-};
-
-PureTaskItem.propTypes = {
-  item: PropTypes.objectOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string,
-    isFinished: PropTypes.bool.isRequired,
-    listId: PropTypes.number.isRequired
-  })).isRequired,
-  navigation: PropTypes.shape({
-    navigate: PropTypes.func.isRequired,
-  }).isRequired,
-};
-*/
 
 const TaskItem = React.memo(PureTaskItem);
 export default TaskItem;

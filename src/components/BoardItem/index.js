@@ -37,7 +37,13 @@ class BoardItem extends React.Component {
     const { color, show } = this.state;
     return (
     // <View style={this.state.color} >
-      <TouchableHighlight style={{ backgroundColor: color, padding: 15 }} underlayColor="#DDDDDD" key={id} onLongPress={() => (this.onLongPressHandler())} onPress={() => navigate('Lists', { boardId: id })}>
+      <TouchableHighlight
+        style={{ backgroundColor: color, padding: 15 }}
+        underlayColor="#DDDDDD"
+        key={id}
+        onLongPress={() => (this.onLongPressHandler())}
+        onPress={() => navigate('Lists', { boardId: id })}
+      >
         <View>
           <View display={show}>
             <Image source={icon} style={styles.icon} />

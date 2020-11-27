@@ -1,7 +1,7 @@
 import data from '../../resources/data.json';
 
-function removeList(id) {
-  data.lists = data.lists.filter((x) => x.id !== id);
-}
+const deleteLists = (id) => {
+  data.lists = data.lists.filter((l) => l.id !== id);
+};
 
-export default removeList;
+export default deleteLists;

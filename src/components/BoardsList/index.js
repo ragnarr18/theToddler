@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import {
-  View, FlatList, ScrollView
+  View, FlatList, ScrollView,
 } from 'react-native';
 import styles from './styles';
 import BoardItem from '../BoardItem';

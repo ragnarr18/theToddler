@@ -5,43 +5,57 @@ import BottomToolbar from '../../components/Lists/BottomToolbar';
 import ListList from '../../components/Lists/ListList';
 import data from '../../resources/data.json';
 import AddList from '../../components/Lists/AddList';
+import deleteLists from '../../services/deleteBoards';
+
+const icon = require('../../images/selected.png');
 
 class Lists extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { lists: data.lists, isAddModalOpen: false, selectedLists: [] };
+    this.state = {
+      lists: data.lists,
+      isAddModalOpen: false,
+      selectedItems: [],
+      show: 'none',
+      isRemoveModalOpen: false,
+    };
   }
 
-  onListLongPress(name) {
-    const { selectedLists } = this.state;
-    if (selectedLists.indexOf(name) !== -1) {
-      // The list is already within the list
-      this.setState({
-        selectedLists: selectedLists.filter((list) => list !== name),
-      });
-    } else {
-      // The list needs to be added
-      this.setState({
-        selectedLists: [...selectedLists, name],
-      });
+  selectOrUnSelect(id) {
+    const { selectedItems } = this.state;
+    const index = selectedItems.indexOf(id);
+    if (index === -1) {
+      selectedItems.push(id);
+      console.log(selectedItems);
+      return;
     }
+    selectedItems.splice(index, 1);
+  }
+
+  deleteSelected() {
+    const { selectedItems } = this.state;
+    deleteLists(selectedItems);
+    this.setState({ selectedItems: [] });
   }
 
   render() {
-    console.log(this.state.selectedLists);
     const { navigation } = this.props;
     const { boardId } = navigation.state.params;
-    const { lists, isAddModalOpen, selectedLists } = this.state;
+    const {
+      lists, isAddModalOpen, isRemoveModalOpen, selectedLists,
+    } = this.state;
     const tempArray = lists.filter((list) => list.boardId === boardId);
     return (
       <View style={{ flex: 1 }}>
         <ListList
           lists={tempArray}
           navigation={navigation}
-          onLongPress={(name) => this.onListLongPress(name)}
-          selectedLists={selectedLists}
+          setSelected={(id) => this.selectOrUnSelect(id)}
         />
-        <BottomToolbar onAdd={() => this.setState({ isAddModalOpen: true })} />
+        <BottomToolbar
+          onAdd={() => this.setState({ isAddModalOpen: true })}
+          onRemove={() => this.deleteSelected()}
+        />
         <AddList
           isOpen={isAddModalOpen}
           closeModel={() => this.setState({ isAddModalOpen: false })}
