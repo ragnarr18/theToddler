@@ -14,12 +14,22 @@ class Tasks extends React.Component {
     this.listId = navigation.state.params.listId;
     this.state = {
       updateValue: 1,
-      isAddModalOpen: false
+      isAddModalOpen: false,
+      isMoveModalOpen: false,
+      isEditModalOpen: false,
     };
   }
 
   update() {
     this.setState({ updateValue: 1 });
+  }
+
+  closeEdit() {
+    this.setState({ isEditModalOpen: false });
+  }
+
+  closeMove() {
+    this.setState({ isMoveModalOpen: false });
   }
 
   remove(id) {
@@ -28,10 +38,14 @@ class Tasks extends React.Component {
   }
 
   render() {
+    const functions = {
+      update: this.update,
+    }
     return (
       <View style={{ flex: 1 }}>
         <TaskList
           remove={(id) => this.remove(id)}
+          functions={functions}
           listId={this.listId}
         />
         <AddTask

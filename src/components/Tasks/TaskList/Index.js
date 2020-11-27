@@ -12,14 +12,14 @@ class TaskList extends React.Component {
   }
 
   render() {
-    const { listId, remove } = this.props;
+    const { listId, remove, functions } = this.props;
     const taskArray = [];
     const listTasks = data.tasks.filter((task) => task.listId === listId);
     if (listTasks.length > 0) {
       listTasks.map((n) => (
         taskArray.push(
           <View>
-            <TaskItem remove={remove} item={n} />
+            <TaskItem remove={remove} functions={functions} item={n} />
           </View>,
         )
       ));
