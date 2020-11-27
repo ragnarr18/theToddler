@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 /* import Header from '../../components/Lists/Header'; */
 import BottomToolbar from '../../components/Lists/BottomToolbar';
 import ListList from '../../components/Lists/ListList';
@@ -7,7 +8,7 @@ import data from '../../resources/data.json';
 import AddList from '../../components/Lists/AddList';
 import deleteList from '../../services/removeList';
 
-const icon = require('../../images/selected.png');
+// const icon = require('../../images/selected.png');
 
 class Lists extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class Lists extends React.Component {
     const index = selectedItems.indexOf(id);
     if (index === -1) {
       selectedItems.push(id);
-      console.log(selectedItems);
+      // console.log(selectedItems);
       return;
     }
     selectedItems.splice(index, 1);
@@ -40,8 +41,7 @@ class Lists extends React.Component {
   render() {
     const { navigation } = this.props;
     const { boardId } = navigation.state.params;
-    const { isAddModalOpen,
-    } = this.state;
+    const { isAddModalOpen } = this.state;
     const tempArray = data.lists.filter((list) => list.boardId === boardId);
     return (
       <View style={{ flex: 1 }}>
@@ -63,5 +63,11 @@ class Lists extends React.Component {
     );
   }
 }
+
+Lists.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Lists;
