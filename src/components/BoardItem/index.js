@@ -16,15 +16,21 @@ class BoardItem extends React.Component {
       },
       // onPanResponderRelease: this.onRelease.bind(this),
     });
-    this.state = { name: '', thumbnailPhoto: '', color: 'red', fadeAnim: new Animated.Value(0), show:"none" };
+    this.state = {
+      name: '', thumbnailPhoto: '', color: 'red', fadeAnim: new Animated.Value(0), show: 'none',
+    };
   }
 
   onLongPressHandler() {
-    this.setState({ show: "flex"})
+    if (this.state.show == 'none') {
+      this.setState({ show: 'flex', color: 'blue' });
+      return;
+    }
+    this.setState({ show: 'none', color: 'red' });
   }
 
   _onRelease() {
-    this.setState({ modalVisible: false})
+    this.setState({ modalVisible: false });
   }
 
   render() {
@@ -33,17 +39,17 @@ class BoardItem extends React.Component {
     } = this.props;
 
     return (
-      // <View style={this.state.color} >
-        <TouchableHighlight style={{backgroundColor: "none"}} underlayColor="#DDDDDD" key={id} onLongPress={() => (this.onLongPressHandler())} onPress={() => navigate('Lists', { boardId: id })}>
-          <View>
-            <View display={this.state.show}>
-              <Text>Toggled</Text>
-            </View>
-            <ImageThumbnail source={thumbnailPhoto} />
-            <Text>{name}</Text>
+    // <View style={this.state.color} >
+      <TouchableHighlight style={{backgroundColor:this.state.color, padding: 15}} underlayColor="#DDDDDD" key={id} onLongPress={() => (this.onLongPressHandler())} onPress={() => navigate('Lists', { boardId: id })}>
+        <View>
+          <View display={this.state.show}>
+            <Text>Toggled(change to some dot)</Text>
           </View>
-        </TouchableHighlight>
-      // </View>
+          <ImageThumbnail source={thumbnailPhoto} />
+          <Text>{name}</Text>
+        </View>
+      </TouchableHighlight>
+    // </View>
     );
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import {
-  View, FlatList,
+  View, FlatList, ScrollView
 } from 'react-native';
 import styles from './styles';
 import BoardItem from '../BoardItem';
@@ -27,7 +27,7 @@ class BoardsList extends React.Component {
               thumbnailPhoto={item.thumbnailPhoto}
             />
           )}
-          keyExtractor={(boardsItem) => boardsItem.name}
+          keyExtractor={(boardsItem) => boardsItem.id}
         />
       </View>
     );
