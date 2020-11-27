@@ -6,29 +6,31 @@ import ListList from '../../components/Lists/ListList';
 import data from '../../resources/data.json';
 import AddList from '../../components/Lists/AddList';
 
+const icon = require('../../images/selected.png');
+
 class Lists extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { lists: data.lists, isAddModalOpen: false, selectedLists: [] };
+    this.state = {
+      lists: data.lists, isAddModalOpen: false, selected: false, show: 'none'
+};
   }
 
-  onListLongPress(name) {
-    const { selectedLists } = this.state;
-    if (selectedLists.indexOf(name) !== -1) {
-      // The list is already within the list
-      this.setState({
-        selectedLists: selectedLists.filter((list) => list !== name),
-      });
-    } else {
-      // The list needs to be added
-      this.setState({
-        selectedLists: [...selectedLists, name],
-      });
+  onLongPressHandler() {
+    console.log('onLongPress');
+    const { id, setSelected } = this.props;
+    setSelected(id);
+    let { selected } = this.state;
+    selected = !selected;
+    this.setState({ selected });
+    if (selected) {
+      this.setState({ show: 'flex', color: 'none' });
+      return;
     }
+    this.setState({ show: 'none', color: 'white' });
   }
 
   render() {
-    console.log(this.state.selectedLists);
     const { navigation } = this.props;
     const { boardId } = navigation.state.params;
     const { lists, isAddModalOpen, selectedLists } = this.state;
@@ -38,7 +40,7 @@ class Lists extends React.Component {
         <ListList
           lists={tempArray}
           navigation={navigation}
-          onLongPress={(name) => this.onListLongPress(name)}
+          onLongPress={() => (this.onLongPressHandler())}
           selectedLists={selectedLists}
         />
         <BottomToolbar onAdd={() => this.setState({ isAddModalOpen: true })} />
