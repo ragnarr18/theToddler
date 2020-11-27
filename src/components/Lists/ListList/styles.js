@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { prettyOrange } from '../../../styles/colors';
 
 export default StyleSheet.create({
   listOverhead: {

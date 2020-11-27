@@ -1,6 +1,7 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import {
-  View, TextInput, Text, TouchableOpacity, Button, Alert,
+  TextInput, Text, Button,
 } from 'react-native';
 import Modal from '../../modals/BoardModal';
 import styles from './styles';
@@ -36,6 +37,7 @@ class InputComponent extends React.Component {
         closeModel={closeModel}
         isOpen={isOpen}
       >
+        <Text style={styles.title}> Create Board </Text>
         <Text>Name:</Text>
         <TextInput
           placeholder="Paris summer 2018"
@@ -56,10 +58,18 @@ class InputComponent extends React.Component {
           title="Create Board"
           onPress={() => this.createAndClose(name, thumbnailPhoto)}
         />
+        <Button
+          title="Cancel"
+          onPress={closeModel}
+        />
       </Modal>
-
     );
   }
 }
+
+InputComponent.propTypes = {
+  closeModel: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+};
 
 export default InputComponent;

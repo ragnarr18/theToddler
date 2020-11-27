@@ -1,13 +1,14 @@
 import React from 'react';
 import {
-  View, Text, TextInput, Button,
+  Text, TextInput, Button,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import Modal from '../../../modals/TaskModal';
 import CreateTask from '../../../services/createTask';
 import styles from './styles';
 
 function createAndClose(name, description, listId, closeModal) {
-  console.log('close!', closeModal);
+  // console.log('close!', closeModal);
   CreateTask(name, description, listId);
   closeModal();
 }
@@ -35,9 +36,10 @@ class AddTask extends React.Component {
 
     return (
       <Modal
-        closeModal={closeModal}
+        closeModel={closeModal}
         isOpen={isOpen}
       >
+        <Text style={styles.title}>Create Task</Text>
         <Text>Name:</Text>
         <TextInput
           placeholder="Task Name"
@@ -57,9 +59,19 @@ class AddTask extends React.Component {
           title="Create Task"
           onPress={() => createAndClose(name, description, listId, closeModal)}
         />
+        <Button
+          title="Cancel"
+          onPress={closeModal}
+        />
       </Modal>
     );
   }
 }
+
+AddTask.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  listId: PropTypes.number.isRequired,
+};
 
 export default AddTask;

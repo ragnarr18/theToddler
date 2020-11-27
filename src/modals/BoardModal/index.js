@@ -16,8 +16,6 @@ const addModal = ({ isOpen, closeModel, children }) => {
       transparent={false}
       isVisible={isOpen}
       hasBackdrop
-      swipeDirection={['up']}
-      onSwipeComplete={closeModel}
       onBackdropPress={closeModel}
       onDismiss={() => {
       }}

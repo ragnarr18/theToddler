@@ -17,5 +17,5 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 14,
     marginBottom: 20,
-  }
+  },
 });

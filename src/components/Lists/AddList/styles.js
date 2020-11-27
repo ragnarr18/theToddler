@@ -10,7 +10,6 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     padding: 2,
-    flex: 0.1,
     margin: 15,
     width: 200,
   },

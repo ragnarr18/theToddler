@@ -3,7 +3,6 @@ import React from 'react';
 import Modal from 'react-native-modal';
 import styles from './styles';
 
-
 const addModal = ({ isOpen, closeModel, children }) => {
   const [text, setText] = React.useState('');
   return (

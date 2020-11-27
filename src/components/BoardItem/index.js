@@ -17,7 +17,6 @@ class BoardItem extends React.Component {
   }
 
   onLongPressHandler() {
-    console.log('onLongPress');
     const { id, setSelected } = this.props;
     setSelected(id);
     let { selected } = this.state;

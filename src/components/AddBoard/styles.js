@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   model: {
@@ -12,5 +12,10 @@ export default StyleSheet.create({
     padding: 2,
     margin: 5,
     width: 200,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 14,
+    marginBottom: 20,
   },
 });
