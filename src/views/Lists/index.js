@@ -13,10 +13,8 @@ class Lists extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lists: data.lists,
       isAddModalOpen: false,
       selectedItems: [],
-      isRemoveModalOpen: false,
     };
   }
 
@@ -37,18 +35,14 @@ class Lists extends React.Component {
       deleteList(selectedItems[i]);
     }
     this.setState({ selectedItems: [] });
-    console.log("setState");
-    console.log(this.state.selectedItems);
-
   }
 
   render() {
     const { navigation } = this.props;
     const { boardId } = navigation.state.params;
-    const {
-      lists, isAddModalOpen, isRemoveModalOpen, selectedLists,
+    const { isAddModalOpen,
     } = this.state;
-    const tempArray = lists.filter((list) => list.boardId === boardId);
+    const tempArray = data.lists.filter((list) => list.boardId === boardId);
     return (
       <View style={{ flex: 1 }}>
         <ListList
