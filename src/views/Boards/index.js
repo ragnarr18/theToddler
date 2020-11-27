@@ -47,10 +47,9 @@ class Boards extends React.Component {
 
   render() {
     const {
-      isAddModalOpen, isEditModalOpen, currentName, currentThumbnail,
+      isAddModalOpen, isEditModalOpen, currentName, currentThumbnail, selectedItems,
     } = this.state;
     const { navigation } = this.props;
-    const { selectedItems } = this.state;
     return (
       <View>
         <BoardsList

@@ -11,22 +11,22 @@ class BoardItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: false, color: this.props.color, show: 'none',
+      selected: false, color: this.props.color, show: 'none', originalColor: this.props.color
     };
   }
 
-  onLongPressHandler() {
+  onLongPressHandler(color) {
     console.log('onLongPress');
     const { id, setSelected } = this.props;
     setSelected(id);
-    let { selected } = this.state;
+    let { selected, originalColor } = this.state;
     selected = !selected;
     this.setState({ selected });
     if (selected) {
       this.setState({ show: 'flex', color: 'none' });
       return;
     }
-    this.setState({ show: 'none', color: 'white' });
+    this.setState({ show: 'none', color: originalColor });
   }
 
   render() {
