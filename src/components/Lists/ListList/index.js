@@ -5,28 +5,78 @@ import {
 } from 'react-native';
 import styles from './styles';
 
-const ListList = ({
-  lists, navigation: { navigate }, onLongPress, selectedLists,
-}) => (
-  <View style={styles.listOverhead}>
-    <FlatList
-      numColumns={1}
-      data={lists}
-      renderItem={({ item: { id, name, color } }) => (
-        <TouchableOpacity onLongPress={() => onLongPress(name)}>
-          <TouchableHighlight
-            key={id}
-            style={{ backgroundColor: color }}
-            onPress={() => navigate('Tasks', { listId: id })}
-          >
-            <Text style={styles.listText}>{name}</Text>
-          </TouchableHighlight>
-        </TouchableOpacity>
-      )}
-      keyExtractor={(listItem) => listItem.id}
-    />
-  </View>
-);
+class ListList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: false,
+      color: 'white',
+      show: 'none',
+    };
+  }
+
+  onLongPressHandler() {
+    console.log('onLongPress');
+    const { id, setSelected } = this.props;
+    setSelected(id);
+    let { selected } = this.state;
+    selected = !selected;
+    this.setState({ selected });
+    if (selected) {
+      this.setState({ show: 'flex', color: 'none' });
+      return;
+    }
+    this.setState({ show: 'none', color: 'white' });
+  }
+
+  render() {
+    const { lists, navigation, setSelected } = this.props;
+    return (
+      <View style={styles.listOverhead}>
+        <FlatList
+          numColumns={1}
+          data={lists}
+          renderItem={({ item: { id, name, color } }) => (
+            <TouchableOpacity>
+              <TouchableHighlight
+                key={id}
+                style={{ backgroundColor: color }}
+                onLongPress={() => (this.onLongPressHandler())}
+                onPress={() => navigate('Tasks', { listId: id })}
+              >
+                <Text style={styles.listText}>{name}</Text>
+              </TouchableHighlight>
+            </TouchableOpacity>
+          )}
+          keyExtractor={(listItem) => listItem.id}
+        />
+      </View>
+    );
+  }
+}
+
+// const ListList = ({
+//   lists, navigation: { navigate }, onLongPress, selectedLists,
+// }) => (
+//   <View style={styles.listOverhead}>
+//     <FlatList
+//       numColumns={1}
+//       data={lists}
+//       renderItem={({ item: { id, name, color } }) => (
+//         <TouchableOpacity onLongPress={() => onLongPress(name)}>
+//           <TouchableHighlight
+//             key={id}
+//             style={{ backgroundColor: color }}
+//             onPress={() => navigate('Tasks', { listId: id })}
+//           >
+//             <Text style={styles.listText}>{name}</Text>
+//           </TouchableHighlight>
+//         </TouchableOpacity>
+//       )}
+//       keyExtractor={(listItem) => listItem.id}
+//     />
+//   </View>
+// );
 
 ListList.propTypes = {
   lists: PropTypes.arrayOf(PropTypes.shape({

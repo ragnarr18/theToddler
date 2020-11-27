@@ -9,7 +9,10 @@ import deleteBoards from '../../services/deleteBoards';
 class Boards extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isAddModalOpen: false, selectedItems: [] };
+    this.state = {
+      isAddModalOpen: false,
+      selectedItems: [],
+    };
   }
 
   selectOrUnSelect(id) {
@@ -34,8 +37,15 @@ class Boards extends React.Component {
     const { navigation } = this.props;
     return (
       <View>
-        <BoardsList boardsItems={data.boards} navigation={navigation} setSelected={(id) => this.selectOrUnSelect(id)} />
-        <BoardsToolbar onAdd={() => this.setState({ isAddModalOpen: true })} onDelete={() => this.deleteSelected()} />
+        <BoardsList
+          boardsItems={data.boards}
+          navigation={navigation}
+          setSelected={(id) => this.selectOrUnSelect(id)}
+        />
+        <BoardsToolbar
+          onAdd={() => this.setState({ isAddModalOpen: true })}
+          onDelete={() => this.deleteSelected()}
+        />
         <AddBoard
           isOpen={isAddModalOpen}
           closeModel={() => this.setState({ isAddModalOpen: false })}
