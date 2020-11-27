@@ -31,7 +31,7 @@ class ListList extends React.Component {
 
   render() {
     const { lists, navigation, setSelected } = this.props;
-    const { navigate } = navigation
+    const { navigate } = navigation;
     return (
       <View style={styles.listOverhead}>
         <FlatList
