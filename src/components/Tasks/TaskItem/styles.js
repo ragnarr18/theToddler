@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { lightGray, darkGray } from '../../../styles/colors';
 
 export default StyleSheet.create({
   TaskContainer: {
@@ -24,7 +25,7 @@ export default StyleSheet.create({
     padding: 20,
   },
   iconView: {
-    height: 100,
+    height: 50,
     padding: 20,
     alignItems: 'center',
     flexDirection: 'row',
@@ -49,5 +50,20 @@ export default StyleSheet.create({
   icon: {
     width: 20,
     height: 20,
+  },
+  arrow: {
+    width: 15,
+    height: 15,
+    position: 'absolute',
+    right: 20,
+    opacity: 0.3,
+  },
+  title: {
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+  description: {
+    backgroundColor: lightGray,
+    marginBottom: 10,
   },
 });
