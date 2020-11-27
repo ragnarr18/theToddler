@@ -45,13 +45,6 @@ class Boards extends React.Component {
     this.setState({ selectedItems: [] });
   }
 
-  // editSelected(id) {
-  //   const { closeModel } = this.props;
-  //   if (name !== '' || thumbnailPhoto !== '') {
-  //     editBoard(id, name, thumbnailPhoto);
-  //   }
-  // }
-
   render() {
     const {
       isAddModalOpen, isEditModalOpen, currentName, currentThumbnail,
