@@ -35,7 +35,7 @@ class AddTask extends React.Component {
 
     return (
       <Modal
-        closeModal={closeModal}
+        closeModel={closeModal}
         isOpen={isOpen}
       >
         <Text>Name:</Text>
@@ -56,6 +56,10 @@ class AddTask extends React.Component {
         <Button
           title="Create Task"
           onPress={() => createAndClose(name, description, listId, closeModal)}
+        />
+        <Button
+          title="Cancel"
+          onPress={closeModal}
         />
       </Modal>
     );
