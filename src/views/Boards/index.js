@@ -12,7 +12,6 @@ class Boards extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
       isAddModalOpen: false, isEditModalOpen: false, selectedItems: [], currentName: '', currentThumbnail: '',
     };
   }
@@ -26,11 +25,6 @@ class Boards extends React.Component {
         break;
       }
     }
-=======
-      isAddModalOpen: false,
-      selectedItems: [],
-    };
->>>>>>> c73e8c7bc355da4ec3dfacb6c5de225231a976c8
   }
 
   selectOrUnSelect(id) {
@@ -72,14 +66,9 @@ class Boards extends React.Component {
           setSelected={(id) => this.selectOrUnSelect(id)}
         />
         <BoardsToolbar
-<<<<<<< HEAD
           onAdd={() => this.setState({ isAddModalOpen: true, selectedItems })}
           onDelete={() => this.deleteSelected()}
           onEdit={() => this.setState({ isEditModalOpen: true, selectedItems })}
-=======
-          onAdd={() => this.setState({ isAddModalOpen: true })}
-          onDelete={() => this.deleteSelected()}
->>>>>>> c73e8c7bc355da4ec3dfacb6c5de225231a976c8
         />
         <AddBoard
           isOpen={isAddModalOpen}
