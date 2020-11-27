@@ -39,6 +39,7 @@ class AddTask extends React.Component {
         closeModel={closeModal}
         isOpen={isOpen}
       >
+        <Text style={styles.title}>Create Task</Text>
         <Text>Name:</Text>
         <TextInput
           placeholder="Task Name"
