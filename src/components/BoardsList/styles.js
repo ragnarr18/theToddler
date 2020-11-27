@@ -1,11 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
+
+const HEIGHT = Math.round(Dimensions.get('window').height);
 
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    marginBottom: 250,
     justifyContent: 'center',
     alignItems: 'center',
+    height: HEIGHT - 175,
   },
 
   boarderItem: {
