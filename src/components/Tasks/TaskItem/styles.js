@@ -31,6 +31,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     backgroundColor: '#ffffff',
+    borderBottomWidth: 1,
   },
   checkbox: {
     height: 20,

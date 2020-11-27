@@ -1,9 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
-import TaskToolbar from '../../../components/Tasks/TaskToolbar';
-import data from '../../../resources/data.json';
-import TaskList from '../../../components/Tasks/TaskList/Index';
-import RemoveTask from '../../../services/RemoveTask';
+import TaskToolbar from '../../components/BoardsToolbar';
+import data from '../../resources/data.json';
+import TaskList from '../../components/Tasks/TaskList/Index';
+import RemoveTask from '../../services/RemoveTask';
 
 class Tasks extends React.Component {
   constructor(props) {
