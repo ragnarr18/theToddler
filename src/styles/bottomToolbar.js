@@ -26,6 +26,6 @@ export default StyleSheet.create({
   toolbarActionText: {
     fontWeight: 'bold',
     color: 'white',
-    fontSize: 16,
+    fontSize: 15,
   },
 });

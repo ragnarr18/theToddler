@@ -14,8 +14,8 @@ function PureTaskToolbar({
         <TouchableHighlight onPress={onMove} style={styles.toolbarAction}>
           <Text style={styles.toolbarActionText}>Move Task</Text>
         </TouchableHighlight>
-        <TouchableHighlight onPress={onRemove} style={styles.toolbarAction}>
-          <Text style={styles.toolbarActionText}>Remove Task</Text>
+        <TouchableHighlight onPress={onEdit} style={styles.toolbarAction}>
+          <Text style={styles.toolbarActionText}>Edit Task</Text>
         </TouchableHighlight>
       </View>
     </View>
