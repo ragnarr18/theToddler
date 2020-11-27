@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, TextInput, Text, TouchableOpacity, Button, Alert,
+  TextInput, Text, Button,
 } from 'react-native';
 import Modal from '../../modals/BoardModal';
 import styles from './styles';
@@ -21,7 +21,7 @@ class InputComponent extends React.Component {
   }
 
   editAndClose(id, name, thumbnailPhoto) {
-    console.log('onPress edit', name, thumbnailPhoto);
+    // console.log('onPress edit', name, thumbnailPhoto);
     const { closeModel } = this.props;
     if (name !== '' || thumbnailPhoto !== '') {
       editBoard(id, name, thumbnailPhoto);
@@ -30,13 +30,13 @@ class InputComponent extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log(prevState);
-    console.log("now", this.state);
+    // console.log(prevState);
+    // console.log('now', this.state);
 
-    console.log(prevProps);
-    console.log("now", this.props);
+    // console.log(prevProps);
+    // console.log('now', this.props);
     if (this.props.prevName !== prevProps.prevName) {
-      this.setState( {name: this.props.prevName, thumbnailPhoto: this.props.prevThumbnail})
+      this.setState({ name: this.props.prevName, thumbnailPhoto: this.props.prevThumbnail });
     }
   }
 

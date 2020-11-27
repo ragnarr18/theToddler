@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import {
-  View, FlatList, ScrollView,
+  View, FlatList,
 } from 'react-native';
 import styles from './styles';
 import BoardItem from '../BoardItem';
@@ -45,7 +45,10 @@ class BoardsList extends React.Component {
 //       renderItem={({ item }) => (
 //         <View style={styles.boarderItem}>
 //           <Text> item </Text>
-//           <TouchableHighlight key={item.id} onLongPress={() => (console.log("yes"))} onPress={() => navigate('Lists', { boardId: item.id })}>
+//           <TouchableHighlight
+//              key={item.id}
+//              onLongPress={() => (console.log("yes"))}
+//              onPress={() => navigate('Lists', { boardId: item.id })}>
 //             <View>
 //               <ImageThumbnail source={item.thumbnailPhoto} />
 //               <Text>{item.name}</Text>

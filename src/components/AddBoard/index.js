@@ -1,6 +1,7 @@
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import {
-  View, TextInput, Text, TouchableOpacity, Button, Alert,
+  TextInput, Text, Button,
 } from 'react-native';
 import Modal from '../../modals/BoardModal';
 import styles from './styles';
@@ -57,9 +58,13 @@ class InputComponent extends React.Component {
           onPress={() => this.createAndClose(name, thumbnailPhoto)}
         />
       </Modal>
-
     );
   }
 }
+
+InputComponent.propTypes = {
+  closeModel: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+};
 
 export default InputComponent;
