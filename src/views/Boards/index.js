@@ -6,7 +6,6 @@ import data from '../../resources/data.json';
 import AddBoard from '../../components/AddBoard';
 import EditBoard from '../../components/EditBoard';
 import deleteBoards from '../../services/deleteBoards';
-import editBoard from '../../services/editBoard';
 
 class Boards extends React.Component {
   constructor(props) {

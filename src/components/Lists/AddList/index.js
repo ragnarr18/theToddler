@@ -21,6 +21,12 @@ class InputComponent extends React.Component {
     this.setState({ color: text });
   }
 
+  createListAndClose(name, color, boardId) {
+    const { closeModel } = this.props;
+    createList(name, color, boardId);
+    closeModel();
+  }
+
   render() {
     const { closeModel, isOpen, boardId } = this.props;
     const { name, color } = this.state;
@@ -67,7 +73,7 @@ class InputComponent extends React.Component {
         />
         <Button
           title="Create List"
-          onPress={() => createList(name, color, boardId)}
+          onPress={() => this.createListAndClose(name, color, boardId)}
         />
       </Modal>
     );
