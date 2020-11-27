@@ -20,6 +20,14 @@ class InputComponent extends React.Component {
     this.setState({ thumbnailPhoto: text });
   }
 
+  createAndClose(name, thumbnailPhoto) {
+    const { closeModel } = this.props;
+    if (name !== '' || thumbnailPhoto !== '') {
+      createBoard(name, thumbnailPhoto);
+    }
+    closeModel();
+  }
+
   render() {
     const { closeModel, isOpen } = this.props;
     const { name, thumbnailPhoto } = this.state;
@@ -46,7 +54,7 @@ class InputComponent extends React.Component {
         />
         <Button
           title="Create Board"
-          onPress={() => createBoard(name, thumbnailPhoto)}
+          onPress={() => this.createAndClose(name, thumbnailPhoto)}
         />
       </Modal>
 
