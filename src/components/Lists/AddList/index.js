@@ -3,14 +3,14 @@ import {
   TextInput, Text, Button,
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
-import Modal from '../../../modals/BoardModal';
+import Modal from '../../../modals/ListModal';
 import styles from './styles';
 import createList from '../../../services/createList';
 
 class InputComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: 'New list', color: '#fafafa' };
+    this.state = { name: '', color: '' };
   }
 
   updateName(text) {
@@ -29,9 +29,12 @@ class InputComponent extends React.Component {
         closeModel={closeModel}
         isOpen={isOpen}
       >
+        <Text style={styles.title}>Create New List</Text>
+        <Text style={styles.smallFont}>(Touch outside of box to exit this window)</Text>
         <Text>List Name:</Text>
         <TextInput
           placeholder="Grocery List"
+          defaultValue="New List"
           value={name}
           onChangeText={(text) => this.updateName(text)}
           style={styles.input}
@@ -45,18 +48,15 @@ class InputComponent extends React.Component {
             },
             { label: 'Gray', value: '#808080' },
             { label: 'Red', value: '#FF0000' },
+            { label: 'Green', value: '#008000' },
+            { label: 'Blue', value: '#0000FF' },
           ]}
-          defaultValue={color}
+          defaultValue="#fafafa"
           placeholder="Select a color!"
           containerStyle={{
             height: 40,
-            width: 150,
-            paddingLeft: 40,
           }}
-          style={{
-            backgroundColor: '#fafafa',
-            width: 40,
-          }}
+          style={styles.input}
           itemStyle={{
             justifyContent: 'center',
           }}
