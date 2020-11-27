@@ -17,16 +17,16 @@ class BoardItem extends React.Component {
       // onPanResponderRelease: this.onRelease.bind(this),
     });
     this.state = {
-      name: '', thumbnailPhoto: '', color: 'red', fadeAnim: new Animated.Value(0), show: 'none',
+      name: '', thumbnailPhoto: '', color: 'white', fadeAnim: new Animated.Value(0), show: 'none',
     };
   }
 
   onLongPressHandler() {
     if (this.state.show == 'none') {
-      this.setState({ show: 'flex', color: 'blue' });
+      this.setState({ show: 'flex', color: 'none' });
       return;
     }
-    this.setState({ show: 'none', color: 'red' });
+    this.setState({ show: 'none', color: 'white' });
   }
 
   _onRelease() {
