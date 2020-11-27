@@ -1,8 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
-import TaskToolbar from '../../../components/Tasks/TaskToolbar';
-import data from '../../../resources/data.json';
-import TaskList from '../../../components/Tasks/TaskList/Index';
+import TaskToolbar from '../../components/Tasks/TaskToolbar';
+import data from '../../resources/data.json';
+import TaskList from '../../components/Tasks/TaskList/Index';
+import RemoveTask from '../../services/RemoveTask';
 
 class Tasks extends React.Component {
   constructor(props) {
@@ -13,10 +14,19 @@ class Tasks extends React.Component {
     this.state = { someValue: 1 };
   }
 
+  remove(id) {
+    RemoveTask(id);
+    this.setState({ someValue: 1 });
+  }
+
   render() {
     return (
       <View>
-        <TaskList listId={this.listId} navigation={this.navigation} />
+        <TaskList
+          remove={(id) => this.remove(id)}
+          listId={this.listId}
+          navigation={this.navigation}
+        />
         <TaskToolbar />
       </View>
     );

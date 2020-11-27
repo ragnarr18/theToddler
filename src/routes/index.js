@@ -3,14 +3,12 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import Boards from '../views/Boards';
 import Lists from '../views/Lists';
-import Tasks from '../views/Tasks/Task';
-import TaskDetails from '../views/Tasks/TaskDetails';
+import Tasks from '../views/Tasks';
 
 const StackNavigator = createStackNavigator({
   Boards,
   Lists,
   Tasks,
-  TaskDetails,
 });
 
 export default createAppContainer(StackNavigator);
