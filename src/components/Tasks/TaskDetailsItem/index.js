@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableHighlight } from 'react-native';
 import RemoveTask from '../../../services/RemoveTask';
 
-class PureTaskDetailsItem extends React.Component {
+class TaskDetailsItem extends React.Component {
   constructor(props) {
     super(props);
     const { item, navigation } = props;
@@ -14,7 +14,7 @@ class PureTaskDetailsItem extends React.Component {
     this.description = item.description;
   }
 
-  remove() {
+  removeItem() {
     // Delete update'ar ekki skjáinn eins og er
     RemoveTask(this.id);
     this.navigation.goBack();
@@ -28,7 +28,7 @@ class PureTaskDetailsItem extends React.Component {
         <Text>{this.name}</Text>
         <Text>{this.description}</Text>
         <Text>{this.isFinished}</Text>
-        <TouchableHighlight onPress={() => this.remove()}>
+        <TouchableHighlight onPress={() => this.removeItem()}>
           <Text>Remove</Text>
         </TouchableHighlight>
       </View>
@@ -36,5 +36,5 @@ class PureTaskDetailsItem extends React.Component {
   }
 }
 
-const TaskDetailsItem = React.memo(PureTaskDetailsItem);
+// const TaskDetailsItem = React.memo(PureTaskDetailsItem);
 export default TaskDetailsItem;
