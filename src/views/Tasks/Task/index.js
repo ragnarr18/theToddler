@@ -7,7 +7,7 @@ import TaskList from '../../../components/Tasks/TaskList/Index';
 function PureTask(props) {
   const { navigation } = props;
   const { listId } = navigation.state.params;
-  
+
   return (
     <View>
       <TaskList listId={listId} navigation={navigation} />

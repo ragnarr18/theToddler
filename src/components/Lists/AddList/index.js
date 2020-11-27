@@ -51,6 +51,7 @@ class InputComponent extends React.Component {
           containerStyle={{
             height: 40,
             width: 150,
+            paddingLeft: 40,
           }}
           style={{
             backgroundColor: '#fafafa',
