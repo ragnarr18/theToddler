@@ -21,11 +21,10 @@ class Tasks extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <TaskList
           remove={(id) => this.remove(id)}
           listId={this.listId}
-          navigation={this.navigation}
         />
         <TaskToolbar />
       </View>

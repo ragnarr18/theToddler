@@ -14,7 +14,7 @@ class PureTaskItem extends React.Component {
 
   render() {
     const {
-      remove, item, navigation,
+      remove, item
     } = this.props;
     const {
       id, name, description, isFinished,

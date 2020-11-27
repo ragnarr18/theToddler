@@ -1,9 +1,12 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import { prettyOrange, darkerOrange } from './colors';
 
+const WIDTH = Math.round(Dimensions.get('window').width);
 export default StyleSheet.create({
   toolbarContainer: {
-    
+    position: 'absolute',
+    bottom: 0,
+    width: WIDTH,
   },
   toolbar: {
     flexDirection: 'row',
