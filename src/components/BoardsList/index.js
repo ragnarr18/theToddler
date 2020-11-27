@@ -9,11 +9,11 @@ import BoardItem from '../BoardItem';
 class BoardsList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: '', thumbnailPhoto: '' };
+    this.state = {};
   }
 
   render() {
-    const { boardsItems, navigation } = this.props;
+    const { boardsItems, navigation, setSelected } = this.props;
     return (
       <View styleName="horizontal" style={styles.container}>
         <FlatList
@@ -25,6 +25,7 @@ class BoardsList extends React.Component {
               id={item.id}
               name={item.name}
               thumbnailPhoto={item.thumbnailPhoto}
+              setSelected={setSelected}
             />
           )}
           keyExtractor={(boardsItem) => boardsItem.id}
@@ -66,6 +67,7 @@ BoardsList.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,
+  setSelected: PropTypes.func.isRequired,
 };
 
 export default BoardsList;
