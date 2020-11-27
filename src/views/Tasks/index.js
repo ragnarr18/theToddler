@@ -4,6 +4,7 @@ import TaskToolbar from '../../components/Tasks/TaskToolbar';
 import data from '../../resources/data.json';
 import TaskList from '../../components/Tasks/TaskList/Index';
 import RemoveTask from '../../services/RemoveTask';
+import AddTask from '../../components/Tasks/AddTask';
 
 class Tasks extends React.Component {
   constructor(props) {
