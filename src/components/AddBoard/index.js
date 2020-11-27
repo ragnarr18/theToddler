@@ -37,6 +37,7 @@ class InputComponent extends React.Component {
         closeModel={closeModel}
         isOpen={isOpen}
       >
+        <Text style={styles.title}> Create Board </Text>
         <Text>Name:</Text>
         <TextInput
           placeholder="Paris summer 2018"
@@ -56,6 +57,10 @@ class InputComponent extends React.Component {
         <Button
           title="Create Board"
           onPress={() => this.createAndClose(name, thumbnailPhoto)}
+        />
+        <Button
+          title="Cancel"
+          onPress={closeModel}
         />
       </Modal>
     );
