@@ -5,7 +5,7 @@ import BottomToolbar from '../../components/Lists/BottomToolbar';
 import ListList from '../../components/Lists/ListList';
 import data from '../../resources/data.json';
 import AddList from '../../components/Lists/AddList';
-import deleteLists from '../../services/deleteBoards';
+import deleteList from '../../services/removeList';
 
 const icon = require('../../images/selected.png');
 
@@ -16,7 +16,6 @@ class Lists extends React.Component {
       lists: data.lists,
       isAddModalOpen: false,
       selectedItems: [],
-      show: 'none',
       isRemoveModalOpen: false,
     };
   }
@@ -34,8 +33,13 @@ class Lists extends React.Component {
 
   deleteSelected() {
     const { selectedItems } = this.state;
-    deleteLists(selectedItems);
+    for (let i = 0; i < selectedItems.length; i += 1) {
+      deleteList(selectedItems[i]);
+    }
     this.setState({ selectedItems: [] });
+    console.log("setState");
+    console.log(this.state.selectedItems);
+
   }
 
   render() {
@@ -59,7 +63,7 @@ class Lists extends React.Component {
         <AddList
           isOpen={isAddModalOpen}
           closeModel={() => this.setState({ isAddModalOpen: false })}
-          boardId={navigation.state.params.boardId}
+          boardId={boardId}
         />
       </View>
     );
