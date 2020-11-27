@@ -12,12 +12,19 @@ class Tasks extends React.Component {
     const { navigation } = props;
     this.navigation = navigation;
     this.listId = navigation.state.params.listId;
-    this.state = { someValue: 1 };
+    this.state = {
+      updateValue: 1,
+      isAddModalOpen: false
+    };
+  }
+
+  update() {
+    this.setState({ updateValue: 1 });
   }
 
   remove(id) {
     RemoveTask(id);
-    this.setState({ someValue: 1 });
+    this.update();
   }
 
   render() {
@@ -27,7 +34,14 @@ class Tasks extends React.Component {
           remove={(id) => this.remove(id)}
           listId={this.listId}
         />
-        <TaskToolbar />
+        <AddTask
+          isOpen={(this.state.isAddModalOpen)}
+          closeModal={() => this.setState({ isAddModalOpen: false })}
+          listId={this.listId}
+        />
+        <TaskToolbar
+          onAdd={() => this.setState({ isAddModalOpen: true })}
+        />
       </View>
     );
   }

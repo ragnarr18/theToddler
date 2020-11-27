@@ -1,8 +1,16 @@
 import React from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import {
+  View, Text, TextInput, Button,
+} from 'react-native';
 import Modal from '../../../modals/TaskModal';
-import CreateTask from '../../services/createTask';
+import CreateTask from '../../../services/createTask';
 import styles from './styles';
+
+function createAndClose(name, description, listId, closeModal) {
+  console.log('close!', closeModal);
+  CreateTask(name, description, listId);
+  closeModal();
+}
 
 class AddTask extends React.Component {
   constructor(props) {
@@ -22,7 +30,7 @@ class AddTask extends React.Component {
   }
 
   render() {
-    const { closeModal, isOpen } = this.props;
+    const { closeModal, isOpen, listId } = this.props;
     const { name, description } = this.state;
 
     return (
@@ -47,7 +55,7 @@ class AddTask extends React.Component {
         />
         <Button
           title="Create Task"
-          onPress={() => createTask(name, description)}
+          onPress={() => createAndClose(name, description, listId, closeModal)}
         />
       </Modal>
     );
