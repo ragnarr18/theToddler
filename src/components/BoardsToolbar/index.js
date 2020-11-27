@@ -1,17 +1,17 @@
 import React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
-import styles from './styles';
+import styles from '../../styles/bottomToolbar';
 
 const BoardsToolbar = ({ onAdd, onEdit, onDelete }) => (
   <View styleName="horizontal" style={styles.toolbar}>
     <TouchableHighlight style={styles.toolbarAction} onPress={onAdd}>
-      <Text>AddBoard</Text>
+      <Text style={styles.toolbarActionText}>AddBoard</Text>
     </TouchableHighlight>
     <TouchableHighlight style={styles.toolbarAction} onPress={onEdit}>
-      <Text>EditBoard</Text>
+      <Text style={styles.toolbarActionText}>EditBoard</Text>
     </TouchableHighlight>
     <TouchableHighlight style={styles.toolbarAction} onPress={onDelete}>
-      <Text>RemoveBoard</Text>
+      <Text style={styles.toolbarActionText}>RemoveBoard</Text>
     </TouchableHighlight>
   </View>
 );
