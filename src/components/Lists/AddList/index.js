@@ -51,6 +51,10 @@ class InputComponent extends React.Component {
           onPress={() => this.createListAndClose(name, color, boardId)}
           style={styles.button}
         />
+        <Button
+          title="Cancel"
+          onPress={closeModel}
+        />
 
         <Text style={styles.text}>List color (Optional):</Text>
         <DropDownPicker

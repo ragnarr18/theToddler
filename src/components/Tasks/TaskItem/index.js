@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, Image, TouchableHighlight } from 'react-native';
+import {
+  View, Text, Image, TouchableHighlight,
+} from 'react-native';
 import { PropTypes } from 'prop-types';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import styles from './styles';
@@ -8,13 +10,13 @@ class PureTaskItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isClosed: true
+      isClosed: true,
     };
   }
 
   render() {
     const {
-      remove, item
+      remove, item,
     } = this.props;
     const {
       id, name, description, isFinished,
@@ -59,7 +61,6 @@ class PureTaskItem extends React.Component {
     );
   }
 }
-
 
 const TaskItem = React.memo(PureTaskItem);
 export default TaskItem;
