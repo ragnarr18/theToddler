@@ -10,5 +10,5 @@ const Header = ({ goBack }) => (
     <Text>Default List</Text>
   </View>
 );
-
+// THIS THING IS NEVER USED ANYWAY
 export default Header;
