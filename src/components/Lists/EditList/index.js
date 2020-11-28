@@ -5,12 +5,23 @@ import {
 import DropDownPicker from 'react-native-dropdown-picker';
 import Modal from '../../../modals/ListModal';
 import styles from './styles';
-import createList from '../../../services/createList';
+import editList from '../../../services/editList';
 
 class InputComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: '', color: '' };
+    this.state = { name: this.props.prevName, color: this.props.prevColor };
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    // console.log(prevState);
+    // console.log('now', this.state);
+    //
+    // console.log(prevProps);
+    // console.log('now', this.props);
+    if (this.props.prevName !== prevProps.prevName) {
+      this.setState({ name: this.props.prevName, color: this.props.prevColor });
+    }
   }
 
   updateName(text) {
@@ -21,39 +32,45 @@ class InputComponent extends React.Component {
     this.setState({ color: text });
   }
 
-  createListAndClose(name, color, boardId) {
+  editListAndClose(id, name, color) {
+    let tempColor = color;
+    console.log('onPress edit', name, color);
     const { closeModel } = this.props;
-    createList(name, color, boardId);
+    if (name !== '') {
+      if (color === '' || color === this.props.prevColor) {
+        tempColor = '#fafafa';
+      }
+      console.log("color", tempColor);
+      editList(id, name, tempColor);
+      console.log('true');
+    }
     closeModel();
   }
 
   render() {
-    const { closeModel, isOpen, boardId } = this.props;
+    const {
+      closeModel, isOpen, boardId, id,
+    } = this.props;
     const { name, color } = this.state;
     return (
       <Modal
         closeModel={closeModel}
         isOpen={isOpen}
       >
-        <Text style={styles.title}>Create New List</Text>
+        <Text style={styles.title}>Edit List</Text>
         <Text style={styles.smallFont}>(Touch outside of box to exit this window)</Text>
         <Text style={styles.text}>List Name:</Text>
         <TextInput
           placeholder="Grocery List"
-          defaultValue="New List"
-          value={name}
+          defaultValue={name}
           onChangeText={(text) => this.updateName(text)}
           style={styles.input}
         />
 
         <Button
-          title="Create List"
-          onPress={() => this.createListAndClose(name, color, boardId)}
+          title="Edit List"
+          onPress={() => this.editListAndClose(id, name, color)}
           style={styles.button}
-        />
-        <Button
-          title="Cancel"
-          onPress={closeModel}
         />
 
         <Text style={styles.text}>List color (Optional):</Text>
@@ -67,7 +84,7 @@ class InputComponent extends React.Component {
             { label: 'Green', value: '#008000' },
             { label: 'Blue', value: '#0000FF' },
           ]}
-          defaultValue="#fafafa"
+          value={color}
           placeholder="Select a color!"
           containerStyle={{
             height: 40,

@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   listOverhead: {
     flex: 1,
+    borderWidth: 3,
   },
 
   listText: {

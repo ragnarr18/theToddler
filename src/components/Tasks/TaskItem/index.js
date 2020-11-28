@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, Image, TouchableHighlight } from 'react-native';
+import {
+  View, Text, Image, TouchableHighlight,
+} from 'react-native';
 import { PropTypes } from 'prop-types';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import EditTask from '../EditTask';

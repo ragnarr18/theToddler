@@ -1,12 +1,12 @@
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 import BoardsList from '../../components/BoardsList';
 import BoardsToolbar from '../../components/BoardsToolbar';
 import data from '../../resources/data.json';
 import AddBoard from '../../components/AddBoard';
 import EditBoard from '../../components/EditBoard';
 import deleteBoards from '../../services/deleteBoards';
-import styles from './styles';
 
 class Boards extends React.Component {
   constructor(props) {
@@ -33,7 +33,6 @@ class Boards extends React.Component {
     if (index === -1) {
       selectedItems.push(id);
       this.getNameAndThumbnail(id);
-      console.log(selectedItems);
       return;
     }
     selectedItems.splice(index, 1);
@@ -45,19 +44,11 @@ class Boards extends React.Component {
     this.setState({ selectedItems: [] });
   }
 
-  // editSelected(id) {
-  //   const { closeModel } = this.props;
-  //   if (name !== '' || thumbnailPhoto !== '') {
-  //     editBoard(id, name, thumbnailPhoto);
-  //   }
-  // }
-
   render() {
     const {
-      isAddModalOpen, isEditModalOpen, currentName, currentThumbnail,
+      isAddModalOpen, isEditModalOpen, currentName, currentThumbnail, selectedItems,
     } = this.state;
     const { navigation } = this.props;
-    const { selectedItems } = this.state;
     return (
       <View>
         <BoardsList
@@ -89,4 +80,10 @@ class Boards extends React.Component {
     );
   }
 }
+Boards.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
+
 export default Boards;
