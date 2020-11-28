@@ -1,4 +1,4 @@
-simport React from 'react';
+import React from 'react';
 import {
   View, TextInput, Text, Button,
 } from 'react-native';
