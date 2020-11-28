@@ -7,24 +7,21 @@ import styles from './styles';
 //   this.setState({modalVisible: visible});
 // }
 
-const addModal = ({ isOpen, closeModel, children }) => {
-  const [text, setText] = React.useState('');
-  return (
-    <Modal
-      style={styles.model}
-      animationType="slide"
-      transparent={false}
-      isVisible={isOpen}
-      hasBackdrop
-      onBackdropPress={closeModel}
-      onDismiss={() => {
-      }}
-    >
-      <View style={styles.body}>
-        {children}
-      </View>
-    </Modal>
-  );
-};
+const addModal = ({ isOpen, closeModel, children }) => (
+  <Modal
+    style={styles.model}
+    animationType="slide"
+    transparent={false}
+    isVisible={isOpen}
+    hasBackdrop
+    onBackdropPress={closeModel}
+    onDismiss={() => {
+    }}
+  >
+    <View style={styles.body}>
+      {children}
+    </View>
+  </Modal>
+);
 
 export default addModal;

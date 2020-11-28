@@ -1,15 +1,12 @@
 import React from 'react';
 import { View } from 'react-native';
 import PropTypes from 'prop-types';
-/* import Header from '../../components/Lists/Header'; */
 import BottomToolbar from '../../components/Lists/BottomToolbar';
 import ListList from '../../components/Lists/ListList';
 import data from '../../resources/data.json';
 import AddList from '../../components/Lists/AddList';
 import EditList from '../../components/Lists/EditList';
 import deleteList from '../../services/removeList';
-
-// const icon = require('../../images/selected.png');
 
 class Lists extends React.Component {
   constructor(props) {
@@ -31,7 +28,6 @@ class Lists extends React.Component {
         this.setState({
           currentName: list.name,
           currentColor: list.color,
-          currentBoardId: list.boardId,
         });
         break;
       }
@@ -44,7 +40,6 @@ class Lists extends React.Component {
     if (index === -1) {
       selectedItems.push(id);
       this.getNameAndColor(id);
-      console.log(selectedItems);
       return;
     }
     selectedItems.splice(index, 1);
@@ -60,9 +55,11 @@ class Lists extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    const { boardId } = navigation.state.params;
+    const { state } = navigation;
+    const { params } = state;
+    const { boardId } = params;
     const {
-      isAddModalOpen, isEditModalOpen, selectedItems, currentName, currentColor, currentBoardId,
+      isAddModalOpen, isEditModalOpen, selectedItems, currentName, currentColor,
     } = this.state;
     const tempArray = data.lists.filter((list) => list.boardId === boardId);
     return (
@@ -84,14 +81,12 @@ class Lists extends React.Component {
         />
         {selectedItems.length === 1
         && (
-        // this.getNameAndThumbnail(selectedItems[0]),
         <EditList
           isOpen={isEditModalOpen}
           closeModel={() => this.setState({ isEditModalOpen: false })}
           id={selectedItems[0]}
           prevName={currentName}
           prevColor={currentColor}
-          // boardId={currentBoardId}
         />
         )}
 
@@ -103,7 +98,13 @@ class Lists extends React.Component {
 Lists.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
+    state: PropTypes({
+      params: PropTypes({
+        boardId: PropTypes.string.isRequired,
+      }),
+    }),
   }).isRequired,
+
 };
 
 export default Lists;

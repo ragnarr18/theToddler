@@ -40,7 +40,7 @@ class Tasks extends React.Component {
   render() {
     const functions = {
       update: this.update,
-    }
+    };
     return (
       <View style={{ flex: 1 }}>
         <TaskList
