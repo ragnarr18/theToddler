@@ -55,6 +55,10 @@ class EditTask extends React.Component {
           title="Update Task"
           onPress={() => updateAndClose(id, this.state.name, this.state.description, closeModal)}
         />
+        <Button
+          title="Cancel"
+          onPress={closeModal}
+        />
       </Modal>
     );
   }
