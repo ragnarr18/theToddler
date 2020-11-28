@@ -19,3 +19,6 @@ feats:
 extra feats:
   toggle: boards and lists can be toggled
   edit:   some items that you edit will have their original values in them before editing in the input fields
+  
+notes:
+  The features which impliment the dropdown selectors require you to back out of their lists for the values to change.
