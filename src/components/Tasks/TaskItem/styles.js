@@ -38,12 +38,14 @@ export default StyleSheet.create({
     width: 20,
     marginRight: 10,
     backgroundColor: '#ff1111',
+    borderWidth: 0.5,
   },
   checkboxDone: {
     height: 20,
     width: 20,
     marginRight: 10,
     backgroundColor: '#11ff11',
+    borderWidth: 0.5,
   },
   removeContainer: {
     padding: 10,

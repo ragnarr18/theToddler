@@ -1,13 +1,14 @@
 import React from 'react';
 import {
-  Text, TextInput, Button,
+  View, Text, TextInput, Button,
 } from 'react-native';
+import { CheckBox } from 'react-native-elements';
 import Modal from '../../../modals/TaskModal';
 import UpdateTask from '../../../services/updateTask';
 import styles from './styles';
 
-function updateAndClose(id, name, description, closeModal) {
-  UpdateTask(id, name, description);
+function updateAndClose(id, name, description, finished, closeModal) {
+  UpdateTask(id, name, description, finished);
   closeModal();
 }
 
@@ -17,6 +18,7 @@ class EditTask extends React.Component {
     this.state = {
       name: props.task.name,
       description: props.task.description,
+      isFinished: props.task.isFinished,
     };
   }
 
@@ -28,6 +30,11 @@ class EditTask extends React.Component {
     this.setState({ description: text });
   }
 
+  updateStatus() {
+    const { isFinished } = this.state;
+    this.setState({ isFinished: !isFinished });
+  }
+
   render() {
     const { closeModal, isOpen, task } = this.props;
     const { id, name, description } = task;
@@ -36,7 +43,8 @@ class EditTask extends React.Component {
         closeModal={closeModal}
         isOpen={isOpen}
       >
-        <Text>Name:</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 20, marginBottom: 5 }}>Edit Task</Text>
+        <Text style={{ fontWeight: 'bold' }}>Name</Text>
         <TextInput
           placeholder={task.name}
           defaultValue={name}
@@ -44,21 +52,41 @@ class EditTask extends React.Component {
           style={styles.input}
         />
 
-        <Text>Description: </Text>
+        <Text style={{ fontWeight: 'bold' }}>Description</Text>
         <TextInput
+          multiline
+          numberOfLines={3}
           placeholder={task.description}
           defaultValue={description}
           onChangeText={(text) => this.updateDescription(text)}
           style={styles.input}
         />
-        <Button
-          title="Update Task"
-          onPress={() => updateAndClose(id, this.state.name, this.state.description, closeModal)}
+
+        <CheckBox
+          center
+          title="Completed"
+          checked={this.state.isFinished}
+          onPress={() => this.updateStatus()}
         />
-        <Button
-          title="Cancel"
-          onPress={closeModal}
-        />
+        <View style={styles.button}>
+          <Button
+            title="Update Task"
+            onPress={() => updateAndClose(
+              id,
+              this.state.name,
+              this.state.description,
+              this.state.isFinished,
+              closeModal,
+            )}
+          />
+        </View>
+        <View style={styles.button}>
+          <Button
+            title="Cancel"
+            color="#bbbbbb"
+            onPress={closeModal}
+          />
+        </View>
       </Modal>
     );
   }

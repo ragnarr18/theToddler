@@ -5,32 +5,17 @@ rules of engagement
   to run program: cd /theToddler/ and run npm start
   to run eslint:  npm run lint
 
-depricated jpg: "thumbnailPhoto": "https://s25743.pcdn.co/wp-content/uploads/2018/05/points-of-interest-where-to-go-and-places-to-visit-in-the-netherlands-featured-1400x735.jpg"
+contributers:
+  arnarp18:  Arnar Snær Pálsson
+  bjarnib18: Bjarni Berg Björgvinsson
+  ragnarr18: Ragnar Geir Ragnarsson
 
+feats:
+  edit:   boards, lists and tasks are editable, however for some you need to go back and then go into the the object again to see the changes
+  create: boards, lists and tasks can be created
+  delete: boards, lists and tasks can be deleted
+  move task: task can be moved but same workarounds as with the "edit" part
 
-setup steps:
-  eslint: npm install --save-dev eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y babel-eslint
-
-  run  node./node_modules/eslint/bin/eslint.js --init
-
-add to package.json {scripts {
-      "lint" : "./node_modules/eslint/bin/eslint.js **/*.js"
-      }}
-
-
-ragnarr18: Ragnar Geir Ragnarsson
-
-bjarnib18: Bjarni Berg Björgvinsson
-
-arnarp18: Arnar Snær Pálsson
-
-
-
-bjarni app.js
-
-<View style={styles.container}>
-  { taskList }
-  <Text>Boardspart by raggi atm</Text>
-  <Navigator />
-  {/* <Boards /> */}
-</View>
+extra feats:
+  toggle: boards and lists can be toggled
+  edit:   some items that you edit will have their original values in them before editing in the input fields

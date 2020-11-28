@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Text, Button
+  View, Text, Button
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Modal from '../../../modals/TaskModal';
@@ -48,26 +48,41 @@ class MoveTask extends React.Component {
         closeModal={closeModal}
         isOpen={isOpen}
       >
-        <Text>Move task to another list</Text>
-        <DropDownPicker
-          items={items}
-          placeholder="Select new list"
-          containerStyle={{
-            height: 40,
-          }}
-          style={styles.inputDropdown}
-          itemStyle={{
-            zIndex: 1,
-            elevation: 1,
-            justifyContent: 'center',
-          }}
-          dropDownStyle={{ backgroundColor: '#fafafa' }}
-          onChangeItem={(item) => this.updateList(item.value)}
-        />
-        <Button
-          title="Move Task"
-          onPress={() => moveAndClose(id, this.state.list, closeModal)}
-        />
+        <Text style={{ fontWeight: 'bold', fontSize: 20, marginBottom: 20}}>Move Task</Text>
+        <View style={{ marginBottom: 80 }}>
+          <Text style={{ fontWeight: 'bold', alignSelf: 'center' }}>Destination</Text>
+          <DropDownPicker
+            items={items}
+            placeholder="Select new list"
+            containerStyle={{
+              height: 40,
+            }}
+            style={styles.inputDropdown}
+            itemStyle={{
+              zIndex: 1,
+              elevation: 1,
+              justifyContent: 'center',
+            }}
+            dropDownStyle={{ backgroundColor: '#fafafa' }}
+            onChangeItem={(item) => this.updateList(item.value)}
+          />
+          <View style={styles.button}>
+            <Button
+              title="Move Task"
+              onPress={() => moveAndClose(id, this.state.list, closeModal)}
+            />
+          </View>
+          <View style={styles.button}>
+            <Button
+              title="Cancel"
+              color="#bbbbbb"
+              onPress={closeModal}
+            />
+          </View>
+        </View>
+        <Text style={{ marginBottom: 20, opacity: 0.5 }}>
+          The Task will move the next time you leave this list
+        </Text>
       </Modal>
     );
   }

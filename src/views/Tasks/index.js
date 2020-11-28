@@ -1,10 +1,11 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import TaskToolbar from '../../components/Tasks/TaskToolbar';
 import data from '../../resources/data.json';
 import TaskList from '../../components/Tasks/TaskList/Index';
 import RemoveTask from '../../services/RemoveTask';
 import AddTask from '../../components/Tasks/AddTask';
+import styles from './style';
 
 class Tasks extends React.Component {
   constructor(props) {
@@ -18,6 +19,9 @@ class Tasks extends React.Component {
       isMoveModalOpen: false,
       isEditModalOpen: false,
     };
+    const currList = data.lists.find(x => x.id === this.listId);
+    this.listColor = currList.color;
+    this.listName = currList.name;
   }
 
   update() {
@@ -43,6 +47,11 @@ class Tasks extends React.Component {
     };
     return (
       <View style={{ flex: 1 }}>
+        <View style={{ backgroundColor: this.listColor, borderBottomWidth: 3}}>
+          <Text style={styles.title}>
+            {this.listName}
+          </Text>
+        </View>
         <TaskList
           remove={(id) => this.remove(id)}
           functions={functions}

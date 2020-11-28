@@ -9,4 +9,9 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
   },
+  title: {
+    alignSelf: 'center',
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
 });

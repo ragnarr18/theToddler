@@ -27,4 +27,7 @@ export default StyleSheet.create({
     width: 200,
     position: 'relative',
   },
+  button: {
+    marginTop: 5,
+  }
 });
