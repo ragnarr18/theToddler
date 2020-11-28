@@ -55,9 +55,9 @@ class Lists extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    const { state } = navigation;
-    const { params } = state;
-    const { boardId } = params;
+    // const { state } = navigation;
+    // const { params } = state;
+    const { boardId } = navigation.state.params;
     const {
       isAddModalOpen, isEditModalOpen, selectedItems, currentName, currentColor,
     } = this.state;
@@ -98,13 +98,12 @@ class Lists extends React.Component {
 Lists.propTypes = {
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
-    state: PropTypes({
-      params: PropTypes({
+    state: PropTypes.shape({
+      params: PropTypes.shape({
         boardId: PropTypes.string.isRequired,
       }),
     }),
   }).isRequired,
-
 };
 
 export default Lists;

@@ -35,7 +35,6 @@ class BoardItem extends React.Component {
     } = this.props;
     const { color, show } = this.state;
     return (
-    // <View style={this.state.color} >
       <TouchableHighlight
         style={{ backgroundColor: color, padding: 15 }}
         underlayColor="#DDDDDD"
@@ -46,13 +45,11 @@ class BoardItem extends React.Component {
         <View>
           <View display={show}>
             <Image source={icon} style={styles.icon} />
-            {/* <Text>Toggled(change to some dot)</Text> */}
           </View>
           <ImageThumbnail source={thumbnailPhoto} />
           <Text>{name}</Text>
         </View>
       </TouchableHighlight>
-    // </View>
     );
   }
 }

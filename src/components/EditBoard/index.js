@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-  TextInput, Text, Button, PropTypes,
+  TextInput, Text, Button,
 } from 'react-native';
+import { PropTypes } from 'prop-types';
 import Modal from '../../modals/BoardModal';
 import styles from './styles';
 import editBoard from '../../services/editBoard';
@@ -76,7 +77,7 @@ class InputComponent extends React.Component {
   }
 }
 InputComponent.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   prevName: PropTypes.string.isRequired,
   prevThumbnail: PropTypes.string.isRequired,
   closeModel: PropTypes.func.isRequired,
