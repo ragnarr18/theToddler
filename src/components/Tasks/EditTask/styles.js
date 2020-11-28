@@ -11,11 +11,14 @@ export default StyleSheet.create({
     borderColor: 'black',
     padding: 2,
     margin: 5,
-    width: 200,
+    width: 250,
   },
   title: {
     fontWeight: 'bold',
     fontSize: 14,
     marginBottom: 20,
+  },
+  button: {
+    marginTop: 5,
   }
 });
