@@ -3,6 +3,7 @@ import {
   TextInput, Text, Button,
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
+import PropTypes from 'prop-types';
 import Modal from '../../../modals/ListModal';
 import styles from './styles';
 import editList from '../../../services/editList';
@@ -13,12 +14,7 @@ class InputComponent extends React.Component {
     this.state = { name: this.props.prevName, color: this.props.prevColor };
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    // console.log(prevState);
-    // console.log('now', this.state);
-    //
-    // console.log(prevProps);
-    // console.log('now', this.props);
+  componentDidUpdate(prevProps) {
     if (this.props.prevName !== prevProps.prevName) {
       this.setState({ name: this.props.prevName, color: this.props.prevColor });
     }
@@ -34,22 +30,22 @@ class InputComponent extends React.Component {
 
   editListAndClose(id, name, color) {
     let tempColor = color;
-    console.log('onPress edit', name, color);
+    // console.log('onPress edit', name, color);
     const { closeModel } = this.props;
     if (name !== '') {
       if (color === '' || color === this.props.prevColor) {
         tempColor = '#fafafa';
       }
-      console.log('color', tempColor);
+      // console.log('color', tempColor);
       editList(id, name, tempColor);
-      console.log('true');
+      // console.log('true');
     }
     closeModel();
   }
 
   render() {
     const {
-      closeModel, isOpen, boardId, id,
+      closeModel, isOpen, id,
     } = this.props;
     const { name, color } = this.state;
     return (
@@ -107,5 +103,13 @@ class InputComponent extends React.Component {
     );
   }
 }
+
+InputComponent.propTypes = {
+  prevName: PropTypes.string.isRequired,
+  prevColor: PropTypes.string.isRequired,
+  closeModel: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  id: PropTypes.number.isRequired,
+};
 
 export default InputComponent;

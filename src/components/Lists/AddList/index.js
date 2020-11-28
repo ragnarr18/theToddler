@@ -2,6 +2,7 @@ import React from 'react';
 import {
   TextInput, Text, Button,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import DropDownPicker from 'react-native-dropdown-picker';
 import Modal from '../../../modals/ListModal';
 import styles from './styles';
@@ -85,5 +86,11 @@ class InputComponent extends React.Component {
     );
   }
 }
+
+InputComponent.propTypes = {
+  closeModel: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  boardId: PropTypes.number.isRequired,
+};
 
 export default InputComponent;

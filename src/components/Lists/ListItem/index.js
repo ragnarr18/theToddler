@@ -1,22 +1,22 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import {
-  View, Text, TouchableOpacity, TouchableHighlight
+  Text, TouchableOpacity, TouchableHighlight,
 } from 'react-native';
 import styles from './styles';
 
-const icon = require('../../../images/selected.png');
+// const icon = require('../../../images/selected.png');
 
 class BoardItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selected: false, color: this.props.color, show: 'none', originalColor: this.props.color
+      selected: false, color: this.props.color, show: 'none', originalColor: this.props.color,
     };
   }
 
   onLongPressHandler(color) {
-    console.log('onLongPress');
+    // console.log('onLongPress');
     const { id, setSelected } = this.props;
     setSelected(id);
     let { selected, originalColor } = this.state;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TouchableHighlight, Text } from 'react-native';
+import PropTypes from 'prop-types';
 import styles from './styles';
 
 const ListToolbar = ({ onAdd, onEdit, onRemove }) => (
@@ -15,5 +16,11 @@ const ListToolbar = ({ onAdd, onEdit, onRemove }) => (
     </TouchableHighlight>
   </View>
 );
+
+ListToolbar.propTypes = {
+  onAdd: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
+};
 
 export default ListToolbar;
