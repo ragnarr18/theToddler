@@ -9,7 +9,15 @@ import editBoard from '../../services/editBoard';
 class InputComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: this.props.prevName, thumbnailPhoto: this.props.prevThumbnail };
+    const { prevName, prevThumbnail } = this.props;
+    this.state = { name: prevName, thumbnailPhoto: prevThumbnail };
+  }
+
+  componentDidUpdate(prevProps) {
+    const { prevName, prevThumbnail } = this.props;
+    if (prevName !== prevProps.prevName) {
+      this.setState({ name: prevName, thumbnailPhoto: prevThumbnail });
+    }
   }
 
   updateName(text) {
@@ -21,23 +29,11 @@ class InputComponent extends React.Component {
   }
 
   editAndClose(id, name, thumbnailPhoto) {
-    // console.log('onPress edit', name, thumbnailPhoto);
     const { closeModel } = this.props;
     if (name !== '' || thumbnailPhoto !== '') {
       editBoard(id, name, thumbnailPhoto);
     }
     closeModel();
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    // console.log(prevState);
-    // console.log('now', this.state);
-
-    // console.log(prevProps);
-    // console.log('now', this.props);
-    if (this.props.prevName !== prevProps.prevName) {
-      this.setState({ name: this.props.prevName, thumbnailPhoto: this.props.prevThumbnail });
-    }
   }
 
   render() {

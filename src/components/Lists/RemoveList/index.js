@@ -2,7 +2,8 @@ import React from 'react';
 import {
   TextInput, Text, Button,
 } from 'react-native';
-import DropDownPicker from 'react-native-dropdown-picker';
+import PropTypes from 'prop-types';
+// import DropDownPicker from 'react-native-dropdown-picker';
 import Modal from '../../../modals/ListModal';
 import styles from './styles';
 import RemoveList from '../../../services/removeList';
@@ -10,7 +11,7 @@ import RemoveList from '../../../services/removeList';
 class InputComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { name: '', color: '' };
+    this.state = { name: '' };
   }
 
   updateName(text) {
@@ -18,8 +19,8 @@ class InputComponent extends React.Component {
   }
 
   render() {
-    const { closeModel, isOpen, boardId } = this.props;
-    const { name, color } = this.state;
+    const { closeModel, isOpen } = this.props;
+    const { name } = this.state;
     return (
       <Modal
         closeModel={closeModel}
@@ -47,5 +48,10 @@ class InputComponent extends React.Component {
     );
   }
 }
+
+InputComponent.propTypes = {
+  closeModel: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+};
 
 export default InputComponent;
