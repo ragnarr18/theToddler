@@ -48,9 +48,16 @@ export default StyleSheet.create({
   removeContainer: {
     padding: 10,
   },
+  iconContainer: {
+    flexDirection: 'row',
+    margin: 5,
+  },
   icon: {
-    width: 20,
-    height: 20,
+    width: 30,
+    height: 30,
+  },
+  iconText: {
+    fontSize: 15,
   },
   arrow: {
     width: 15,
@@ -65,6 +72,8 @@ export default StyleSheet.create({
   },
   description: {
     backgroundColor: lightGray,
+    fontStyle: 'italic',
     marginBottom: 10,
+    padding: 10,
   },
 });

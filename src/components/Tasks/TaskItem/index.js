@@ -64,14 +64,18 @@ class TaskItem extends React.Component {
               {description}
             </Text>
             <TouchableHighlight key={id} onPress={() => { remove(id); }}>
-              <Image style={styles.icon} source={trash} />
+              <View style={styles.iconContainer}>
+                <Image style={styles.icon} source={trash} />
+                <Text style={styles.iconText}> Discard Task</Text>
+              </View>
             </TouchableHighlight>
             <TouchableHighlight
               key={id}
               onPress={() => { this.setState({ isEditModalOpen: true }); }}
             >
-              <View>
+              <View style={styles.iconContainer} >
                 <Image style={styles.icon} source={edit} />
+                <Text style={styles.iconText}> Edit Task</Text>
                 <EditTask
                   isOpen={(this.state.isEditModalOpen)}
                   closeModal={() => this.setState({ isEditModalOpen: false })}
@@ -83,8 +87,9 @@ class TaskItem extends React.Component {
               key={id}
               onPress={() => { this.setState({ isMoveModalOpen: true }); }}
             >
-              <View>
+              <View style={styles.iconContainer}>
                 <Image style={styles.icon} source={move} />
+                <Text style={styles.iconText}> Move Task</Text>
                 <MoveTask
                   isOpen={(this.state.isMoveModalOpen)}
                   closeModal={() => this.setState({ isMoveModalOpen: false })}
