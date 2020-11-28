@@ -2,6 +2,7 @@ import React from 'react';
 import {
   TextInput, Text, Button,
 } from 'react-native';
+import { PropTypes } from 'prop-types';
 import Modal from '../../modals/BoardModal';
 import styles from './styles';
 import editBoard from '../../services/editBoard';
@@ -38,13 +39,10 @@ class InputComponent extends React.Component {
 
   render() {
     const {
-      closeModel, isOpen, id, prevName, prevThumbnail, editSelected,
+      closeModel, isOpen, id, prevName, prevThumbnail,
     } = this.props;
     const { name, thumbnailPhoto } = this.state;
     return (
-      // {if (name === '' && thumbnailPhoto === '') {
-      //   this.setInitialValues();
-      // }}
       <Modal
         closeModel={closeModel}
         isOpen={isOpen}
@@ -78,5 +76,12 @@ class InputComponent extends React.Component {
     );
   }
 }
+InputComponent.propTypes = {
+  id: PropTypes.number.isRequired,
+  prevName: PropTypes.string.isRequired,
+  prevThumbnail: PropTypes.string.isRequired,
+  closeModel: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+};
 
 export default InputComponent;

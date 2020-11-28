@@ -11,4 +11,7 @@ const ImageThumbnail = ({ source }) => (
   />
 );
 
+ImageThumbnail.propTypes = {
+  source: PropTypes.string.isRequired,
+};
 export default ImageThumbnail;
