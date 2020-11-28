@@ -48,7 +48,7 @@ class MoveTask extends React.Component {
         closeModal={closeModal}
         isOpen={isOpen}
       >
-        <Text style={{ fontWeight: 'bold', fontSize: 20, marginBottom: 60 }}>Move Task</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 20, marginBottom: 20}}>Move Task</Text>
         <View style={{ marginBottom: 80 }}>
           <Text style={{ fontWeight: 'bold', alignSelf: 'center' }}>Destination</Text>
           <DropDownPicker
@@ -66,10 +66,17 @@ class MoveTask extends React.Component {
             dropDownStyle={{ backgroundColor: '#fafafa' }}
             onChangeItem={(item) => this.updateList(item.value)}
           />
-          <View style={{ marginTop: 5 }}>
+          <View style={styles.button}>
             <Button
               title="Move Task"
               onPress={() => moveAndClose(id, this.state.list, closeModal)}
+            />
+          </View>
+          <View style={styles.button}>
+            <Button
+              title="Cancel"
+              color="#bbbbbb"
+              onPress={closeModal}
             />
           </View>
         </View>
