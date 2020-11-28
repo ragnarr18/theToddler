@@ -1,9 +1,9 @@
-import React from 'react';
+simport React from 'react';
 import {
   View, TextInput, Text, Button,
 } from 'react-native';
 import { PropTypes } from 'prop-types';
-import Modal from '../../modals/BoardModal';
+import Modal from '../../modals/ListModal';
 import styles from './styles';
 import editBoard from '../../services/editBoard';
 
