@@ -3,14 +3,16 @@ import { View, Text, Image, TouchableHighlight } from 'react-native';
 import { PropTypes } from 'prop-types';
 import { Collapse, CollapseHeader, CollapseBody } from 'accordion-collapse-react-native';
 import EditTask from '../EditTask';
+import MoveTask from '../MoveTask';
 import styles from './styles';
 
-class PureTaskItem extends React.Component {
+class TaskItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isClosed: true,
       isEditModalOpen: false,
+      isMoveModalOpen: false,
     };
   }
 
@@ -28,6 +30,7 @@ class PureTaskItem extends React.Component {
     // icons
     const trash = require('../../../images/delete.png');
     const edit = require('../../../images/edit.png');
+    const move = require('../../../images/move.png');
     const arrow01 = require('../../../images/arrow01.png');
     const arrow02 = require('../../../images/arrow02.png');
 
@@ -74,6 +77,19 @@ class PureTaskItem extends React.Component {
                 />
               </View>
             </TouchableHighlight>
+            <TouchableHighlight
+              key={id}
+              onPress={() => { this.setState({ isMoveModalOpen: true }); }}
+            >
+              <View>
+                <Image style={styles.icon} source={move} />
+                <MoveTask
+                  isOpen={(this.state.isMoveModalOpen)}
+                  closeModal={() => this.setState({ isMoveModalOpen: false })}
+                  task={item}
+                />
+              </View>
+            </TouchableHighlight>
           </CollapseBody>
         </Collapse>
       </View>
@@ -81,6 +97,4 @@ class PureTaskItem extends React.Component {
   }
 }
 
-
-const TaskItem = React.memo(PureTaskItem);
 export default TaskItem;

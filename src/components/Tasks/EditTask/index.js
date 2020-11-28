@@ -6,8 +6,8 @@ import Modal from '../../../modals/TaskModal';
 import UpdateTask from '../../../services/updateTask';
 import styles from './styles';
 
-function updateAndClose(task, closeModal) {
-  UpdateTask(task);
+function updateAndClose(id, name, description, closeModal) {
+  UpdateTask(id, name, description);
   closeModal();
 }
 
@@ -15,8 +15,8 @@ class EditTask extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      description: '',
+      name: props.task.name,
+      description: props.task.description,
     };
   }
 
@@ -53,7 +53,7 @@ class EditTask extends React.Component {
         />
         <Button
           title="Update Task"
-          onPress={() => updateAndClose(id, this.state, closeModal)}
+          onPress={() => updateAndClose(id, this.state.name, this.state.description, closeModal)}
         />
       </Modal>
     );

@@ -43,7 +43,7 @@ class ListList extends React.Component {
                 key={id}
                 style={{ backgroundColor: color }}
                 onLongPress={() => (this.onLongPressHandler())}
-                onPress={() => navigate('Tasks', { listId: id })}
+                onPress={() => navigate('Tasks', { listId: id, update: this.update })}
               >
                 <Text style={styles.listText}>{name}</Text>
               </TouchableHighlight>
