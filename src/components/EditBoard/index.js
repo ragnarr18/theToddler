@@ -3,7 +3,7 @@ import {
   TextInput, Text, Button,
 } from 'react-native';
 import { PropTypes } from 'prop-types';
-import Modal from '../../modals/BoardModal';
+import Modal from '../../modals/ListModal';
 import styles from './styles';
 import editBoard from '../../services/editBoard';
 
@@ -47,6 +47,7 @@ class InputComponent extends React.Component {
         closeModel={closeModel}
         isOpen={isOpen}
       >
+        <Text style={styles.title}>Edit Board</Text>
         <Text>Name:</Text>
         <TextInput
           placeholder={prevName}
