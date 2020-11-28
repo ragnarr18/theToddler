@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import PropTypes from 'prop-types';
 /* import Header from '../../components/Lists/Header'; */
 import BottomToolbar from '../../components/Lists/BottomToolbar';
 import ListList from '../../components/Lists/ListList';
@@ -8,7 +9,7 @@ import AddList from '../../components/Lists/AddList';
 import EditList from '../../components/Lists/EditList';
 import deleteList from '../../services/removeList';
 
-const icon = require('../../images/selected.png');
+// const icon = require('../../images/selected.png');
 
 class Lists extends React.Component {
   constructor(props) {
@@ -98,5 +99,11 @@ class Lists extends React.Component {
     );
   }
 }
+
+Lists.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
+};
 
 export default Lists;

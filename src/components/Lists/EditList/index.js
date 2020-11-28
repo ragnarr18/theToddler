@@ -40,7 +40,7 @@ class InputComponent extends React.Component {
       if (color === '' || color === this.props.prevColor) {
         tempColor = '#fafafa';
       }
-      console.log("color", tempColor);
+      console.log('color', tempColor);
       editList(id, name, tempColor);
       console.log('true');
     }
@@ -70,6 +70,11 @@ class InputComponent extends React.Component {
         <Button
           title="Edit List"
           onPress={() => this.editListAndClose(id, name, color)}
+          style={styles.button}
+        />
+        <Button
+          title="Cancel"
+          onPress={closeModel}
           style={styles.button}
         />
 

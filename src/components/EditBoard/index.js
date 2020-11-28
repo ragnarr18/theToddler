@@ -73,6 +73,10 @@ class InputComponent extends React.Component {
           title="Edit Board"
           onPress={() => this.editAndClose(id, name, thumbnailPhoto)}
         />
+        <Button
+          title="Cancel"
+          onPress={closeModel}
+        />
       </Modal>
 
     );

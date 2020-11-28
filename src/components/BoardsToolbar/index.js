@@ -19,8 +19,8 @@ const BoardsToolbar = ({ onAdd, onEdit, onDelete }) => (
 
 BoardsToolbar.propTypes = {
   onAdd: PropTypes.func.isRequired,
-  onEdit: PropTypes.bool.isRequired,
-  onDelete: PropTypes.bool.isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default BoardsToolbar;
