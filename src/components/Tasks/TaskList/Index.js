@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import TaskItem from '../TaskItem';
 import data from '../../../resources/data.json';
 import RemoveTask from '../../../services/RemoveTask';
+import styles from './styles';
 
 
 class TaskList extends React.Component {
@@ -26,7 +27,7 @@ class TaskList extends React.Component {
     } else {
       // No tasks for this list.
       taskArray.push(
-        <View style={{ justifyContent: 'center' }}>
+        <View style={styles.empty}>
           <Text>There seem to be no tasks</Text>
           <Text>Consider adding new tasks to this list</Text>
         </View>,
