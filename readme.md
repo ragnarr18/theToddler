@@ -5,9 +5,10 @@ rules of engagement
   to run program: cd /theToddler/ and run npm start
   to run eslint:  npm run lint
 
-arnarp18:  Arnar Snær Pálsson
-bjarnib18: Bjarni Berg Björgvinsson
-ragnarr18: Ragnar Geir Ragnarsson
+contributers:
+  arnarp18:  Arnar Snær Pálsson
+  bjarnib18: Bjarni Berg Björgvinsson
+  ragnarr18: Ragnar Geir Ragnarsson
 
 feats:
   edit:   boards, lists and tasks are editable, however for some you need to go back and then go into the the object again to see the changes
@@ -18,4 +19,3 @@ feats:
 extra feats:
   toggle: boards and lists can be toggled
   edit:   some items that you edit will have their original values in them before editing in the input fields
-  
