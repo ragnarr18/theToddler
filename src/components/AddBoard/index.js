@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import {
-  TextInput, Text, Button,
+  View, TextInput, Text, Button,
 } from 'react-native';
 import Modal from '../../modals/BoardModal';
 import styles from './styles';
@@ -38,7 +38,7 @@ class InputComponent extends React.Component {
         isOpen={isOpen}
       >
         <Text style={styles.title}> Create Board </Text>
-        <Text>Name:</Text>
+        <Text style={styles.sectionText}>Name:</Text>
         <TextInput
           placeholder="Paris summer 2018"
           value={name}
@@ -46,7 +46,7 @@ class InputComponent extends React.Component {
           style={styles.input}
         />
 
-        <Text>URL to thumbnail:</Text>
+        <Text style={styles.sectionText}>URL to thumbnail:</Text>
         <TextInput
           placeholder="e.g. tom-jerry-1.jpg"
           multiline
@@ -54,14 +54,19 @@ class InputComponent extends React.Component {
           onChangeText={(text) => this.updateThumbnail(text)}
           style={styles.input}
         />
-        <Button
-          title="Create Board"
-          onPress={() => this.createAndClose(name, thumbnailPhoto)}
-        />
-        <Button
-          title="Cancel"
-          onPress={closeModel}
-        />
+        <View style={styles.button}>
+          <Button
+            title="Create Board"
+            onPress={() => this.createAndClose(name, thumbnailPhoto)}
+          />
+        </View>
+        <View style={styles.button}>
+          <Button
+            title="Cancel"
+            color="#bbbbbb"
+            onPress={closeModel}
+          />
+        </View>
       </Modal>
     );
   }

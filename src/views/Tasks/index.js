@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import PropTypes from 'prop-types';
 import TaskToolbar from '../../components/Tasks/TaskToolbar';
 import data from '../../resources/data.json';
 import TaskList from '../../components/Tasks/TaskList/Index';
@@ -19,7 +20,7 @@ class Tasks extends React.Component {
       isMoveModalOpen: false,
       isEditModalOpen: false,
     };
-    const currList = data.lists.find(x => x.id === this.listId);
+    const currList = data.lists.find((x) => x.id === this.listId);
     this.listColor = currList.color;
     this.listName = currList.name;
   }
@@ -47,7 +48,7 @@ class Tasks extends React.Component {
     };
     return (
       <View style={{ flex: 1 }}>
-        <View style={{ backgroundColor: this.listColor, borderBottomWidth: 3}}>
+        <View style={{ backgroundColor: this.listColor, borderBottomWidth: 3 }}>
           <Text style={styles.title}>
             {this.listName}
           </Text>
@@ -69,6 +70,21 @@ class Tasks extends React.Component {
     );
   }
 }
+
+Tasks.propTypes = {
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+    state: PropTypes.shape({
+      updateValue: PropTypes.number,
+      isAddModalOpen: PropTypes.bool,
+      isEditModalOpen: PropTypes.bool,
+      isMoveModalOpen: PropTypes.bool,
+      params: PropTypes.shape({
+        listId: PropTypes.string.isRequired,
+      }),
+    }),
+  }).isRequired,
+};
 
 // const Tasks = React.memo(PureTask);
 export default Tasks;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 import BottomToolbar from '../../components/Lists/BottomToolbar';
 import ListList from '../../components/Lists/ListList';
@@ -7,6 +7,8 @@ import data from '../../resources/data.json';
 import AddList from '../../components/Lists/AddList';
 import EditList from '../../components/Lists/EditList';
 import deleteList from '../../services/removeList';
+import { prettyOrange } from '../../styles/colors';
+import styles from './styles';
 
 class Lists extends React.Component {
   constructor(props) {
@@ -55,15 +57,23 @@ class Lists extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    // const { state } = navigation;
-    // const { params } = state;
     const { boardId } = navigation.state.params;
     const {
       isAddModalOpen, isEditModalOpen, selectedItems, currentName, currentColor,
     } = this.state;
     const tempArray = data.lists.filter((list) => list.boardId === boardId);
+    const board = data.boards.find((x) => x.id === boardId);
+    const boardName = board.name;
     return (
       <View style={{ flex: 1 }}>
+        <View style={{ borderBottomWidth: 3, backgroundColor: prettyOrange }}>
+          <Text style={styles.title}>
+            {boardName}
+          </Text>
+          <Text style={styles.descriptor}>
+            hold down on list to select/deselect it, then you can choose to edit it or remove it
+          </Text>
+        </View>
         <ListList
           lists={tempArray}
           navigation={navigation}

@@ -10,7 +10,7 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: 'black',
     padding: 2,
-    margin: 15,
+    margin: 5,
     width: 200,
   },
   text: {
@@ -27,14 +27,19 @@ export default StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 14,
-    marginBottom: 20,
+    fontSize: 30,
+    marginBottom: 10,
   },
   smallFont: {
     alignItems: 'center',
     justifyContent: 'center',
   },
+  sectionText: {
+    fontWeight: 'bold',
+    fontSize: 15,
+  },
   button: {
-    position: 'absolute',
+    margin: 5,
+    zIndex: 0,
   },
 });

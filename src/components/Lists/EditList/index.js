@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  TextInput, Text, Button,
+  View, TextInput, Text, Button,
 } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import PropTypes from 'prop-types';
@@ -55,26 +55,14 @@ class InputComponent extends React.Component {
       >
         <Text style={styles.title}>Edit List</Text>
         <Text style={styles.smallFont}>(Touch outside of box to exit this window)</Text>
-        <Text style={styles.text}>List Name:</Text>
+        <Text style={styles.sectionText}>List Name:</Text>
         <TextInput
           placeholder="Grocery List"
           defaultValue={name}
           onChangeText={(text) => this.updateName(text)}
           style={styles.input}
         />
-
-        <Button
-          title="Edit List"
-          onPress={() => this.editListAndClose(id, name, color)}
-          style={styles.button}
-        />
-        <Button
-          title="Cancel"
-          onPress={closeModel}
-          style={styles.button}
-        />
-
-        <Text style={styles.text}>List color (Optional):</Text>
+        <Text style={styles.sectionText}>List color (Optional):</Text>
         <DropDownPicker
           items={[
             {
@@ -99,6 +87,21 @@ class InputComponent extends React.Component {
             color: item.value,
           })}
         />
+        <View style={styles.button}>
+          <Button
+            title="Edit List"
+            onPress={() => this.editListAndClose(id, name, color)}
+            style={styles.button}
+          />
+        </View>
+        <View style={styles.button}>
+          <Button
+            title="Cancel"
+            onPress={closeModel}
+            color="#bbbbbb"
+            style={styles.button}
+          />
+        </View>
       </Modal>
     );
   }

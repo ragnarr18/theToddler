@@ -20,7 +20,7 @@ class TaskList extends React.Component {
       listTasks.map((n) => (
         taskArray.push(
           <View>
-            <TaskItem remove={remove} functions={functions} item={n} />
+            <TaskItem key={n.id} remove={remove} functions={functions} item={n} />
           </View>,
         )
       ));

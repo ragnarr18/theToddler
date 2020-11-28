@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  TextInput, Text, Button,
+  View, TextInput, Text, Button,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -38,7 +38,7 @@ class InputComponent extends React.Component {
       >
         <Text style={styles.title}>Create New List</Text>
         <Text style={styles.smallFont}>(Touch outside of box to exit this window)</Text>
-        <Text style={styles.text}>List Name:</Text>
+        <Text style={styles.text}>List Name</Text>
         <TextInput
           placeholder="Grocery List"
           defaultValue="New List"
@@ -46,35 +46,23 @@ class InputComponent extends React.Component {
           onChangeText={(text) => this.updateName(text)}
           style={styles.input}
         />
-
-        <Button
-          title="Create List"
-          onPress={() => this.createListAndClose(name, color, boardId)}
-          style={styles.button}
-        />
-        <Button
-          title="Cancel"
-          onPress={closeModel}
-        />
-
-        <Text style={styles.text}>List color (Optional):</Text>
+        <Text style={styles.text}>List color (Optional)</Text>
         <DropDownPicker
           items={[
-            {
-              label: 'White', value: '#fafafa', selected: true,
-            },
+            { label: 'White', value: '#fafafa', selected: true },
             { label: 'Gray', value: '#808080' },
             { label: 'Red', value: '#FF0000' },
             { label: 'Green', value: '#008000' },
             { label: 'Blue', value: '#0000FF' },
           ]}
-          defaultValue="#fafafa"
-          placeholder="Select a color!"
+          placeholder="Select Color!"
           containerStyle={{
             height: 40,
           }}
           style={styles.inputDropdown}
           itemStyle={{
+            zIndex: 1,
+            elevation: 1,
             justifyContent: 'center',
           }}
           dropDownStyle={{ backgroundColor: '#fafafa' }}
@@ -82,6 +70,20 @@ class InputComponent extends React.Component {
             color: item.value,
           })}
         />
+        <View style={styles.button}>
+          <Button
+            title="Create List"
+            onPress={() => this.createListAndClose(name, color, boardId)}
+            style={styles.button}
+          />
+        </View>
+        <View style={styles.button}>
+          <Button
+            title="Cancel"
+            color="#bbbbbb"
+            onPress={closeModel}
+          />
+        </View>
       </Modal>
     );
   }

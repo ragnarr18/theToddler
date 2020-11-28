@@ -7,8 +7,9 @@ export default StyleSheet.create({
   },
 
   listText: {
+    alignSelf: 'center',
     fontWeight: 'bold',
-    fontSize: 16,
-    padding: 10,
+    fontSize: 17,
+    padding: 15,
   },
 });

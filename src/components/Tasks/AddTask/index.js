@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Text, TextInput, Button,
+  View, Text, TextInput, Button,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import Modal from '../../../modals/TaskModal';
@@ -40,7 +40,7 @@ class AddTask extends React.Component {
         isOpen={isOpen}
       >
         <Text style={styles.title}>Create Task</Text>
-        <Text>Name:</Text>
+        <Text style={styles.sectionText}>Name</Text>
         <TextInput
           placeholder="Task Name"
           value={name}
@@ -48,21 +48,26 @@ class AddTask extends React.Component {
           style={styles.input}
         />
 
-        <Text>Description: </Text>
+        <Text style={styles.sectionText}>Description</Text>
         <TextInput
           placeholder="Task Description"
           value={description}
           onChangeText={(text) => this.updateDescription(text)}
           style={styles.input}
         />
-        <Button
-          title="Create Task"
-          onPress={() => createAndClose(name, description, listId, closeModal)}
-        />
-        <Button
-          title="Cancel"
-          onPress={closeModal}
-        />
+        <View style={styles.button}>
+          <Button
+            title="Create Task"
+            onPress={() => createAndClose(name, description, listId, closeModal)}
+          />
+        </View>
+        <View style={styles.button}>
+          <Button
+            title="Cancel"
+            color="#bbbbbb"
+            onPress={closeModal}
+          />
+        </View>
       </Modal>
     );
   }

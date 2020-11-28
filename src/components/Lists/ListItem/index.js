@@ -40,7 +40,7 @@ class BoardItem extends React.Component {
         <TouchableHighlight
           key={id}
           underlayColor="#DDDDDD"
-          style={{ backgroundColor: color }}
+          style={{ backgroundColor: color, borderBottomWidth: 1 }}
           onLongPress={() => (this.onLongPressHandler())}
           onPress={() => navigate('Tasks', { listId: id })}
         >

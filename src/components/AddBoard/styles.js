@@ -13,9 +13,15 @@ export default StyleSheet.create({
     margin: 5,
     width: 200,
   },
+  sectionText: {
+    fontWeight: 'bold',
+    fontSize: 15,
+  },
   title: {
     fontWeight: 'bold',
-    fontSize: 14,
-    marginBottom: 20,
+    fontSize: 30,
+  },
+  button: {
+    margin: 5,
   },
 });

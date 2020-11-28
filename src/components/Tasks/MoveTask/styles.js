@@ -28,6 +28,7 @@ export default StyleSheet.create({
     position: 'relative',
   },
   button: {
+    zIndex: 0,
     marginTop: 5,
   }
 });

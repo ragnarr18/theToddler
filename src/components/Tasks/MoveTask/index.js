@@ -50,22 +50,24 @@ class MoveTask extends React.Component {
       >
         <Text style={{ fontWeight: 'bold', fontSize: 20, marginBottom: 20}}>Move Task</Text>
         <View style={{ marginBottom: 80 }}>
-          <Text style={{ fontWeight: 'bold', alignSelf: 'center' }}>Destination</Text>
-          <DropDownPicker
-            items={items}
-            placeholder="Select new list"
-            containerStyle={{
-              height: 40,
-            }}
-            style={styles.inputDropdown}
-            itemStyle={{
-              zIndex: 1,
-              elevation: 1,
-              justifyContent: 'center',
-            }}
-            dropDownStyle={{ backgroundColor: '#fafafa' }}
-            onChangeItem={(item) => this.updateList(item.value)}
-          />
+          <View style={{ zIndex: 10 }}>
+            <Text style={{ fontWeight: 'bold', alignSelf: 'center' }}>Destination</Text>
+            <DropDownPicker
+              items={items}
+              placeholder="Select new list"
+              containerStyle={{
+                height: 40,
+              }}
+              style={styles.inputDropdown}
+              itemStyle={{
+                zIndex: 1,
+                elevation: 1,
+                justifyContent: 'center',
+              }}
+              dropDownStyle={{ backgroundColor: '#fafafa' }}
+              onChangeItem={(item) => this.updateList(item.value)}
+            />
+          </View>
           <View style={styles.button}>
             <Button
               title="Move Task"

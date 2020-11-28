@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 import BoardsList from '../../components/BoardsList';
 import BoardsToolbar from '../../components/BoardsToolbar';
@@ -7,6 +7,8 @@ import data from '../../resources/data.json';
 import AddBoard from '../../components/AddBoard';
 import EditBoard from '../../components/EditBoard';
 import deleteBoards from '../../services/deleteBoards';
+import { prettyOrange } from '../../styles/colors';
+import styles from './styles';
 
 class Boards extends React.Component {
   constructor(props) {
@@ -51,6 +53,11 @@ class Boards extends React.Component {
     const { navigation } = this.props;
     return (
       <View>
+        <View style={{ borderBottomWidth: 3, backgroundColor: prettyOrange }}>
+          <Text style={styles.title}>
+            Boards
+          </Text>
+        </View>
         <BoardsList
           boardsItems={data.boards}
           navigation={navigation}

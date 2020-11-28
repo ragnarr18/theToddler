@@ -17,6 +17,12 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
   },
+
+  cell: {
+    padding: 15,
+    width: 175,
+    margin: 5
+  }
 });
 
 export default styles;

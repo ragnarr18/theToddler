@@ -14,7 +14,8 @@ export default StyleSheet.create({
     width: 200,
   },
   text: {
-    margin: 5,
+    fontWeight: 'bold',
+    fontSize: 15,
   },
   inputDropdown: {
     borderWidth: 1,
@@ -27,14 +28,16 @@ export default StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 14,
-    marginBottom: 20,
+    fontSize: 25,
   },
   smallFont: {
+    fontSize: 13,
+    opacity: 0.5,
     alignItems: 'center',
     justifyContent: 'center',
   },
   button: {
-    position: 'absolute',
+    margin: 5,
+    zIndex: 0,
   },
 });
